@@ -1,0 +1,42 @@
+# Customize User Attributes
+
+Scalekit simplifies the Single Sign-On (SSO) process by dealing with your customer's chosen Identity Providers (IdP) for your Business-to-Business (B2B) application. The IdPs provide user information, such as email and names, to your app, helping it recognize the logged-in user.
+
+Consider, we want to get employee number of the user logging into the our app. This guide will show you how to add your own custom attribute (employee number) and map it’s value from the Identity Provider.
+
+Broadly,
+
+1. Create a new attribute in Scalekit
+2. Set up the value that the Identity Provider should relay to this attribute.
+
+## Create a New Attribute
+
+Sign into your Scalekit account and select the "SSO" option. Within this section, you'll find a part labeled "User Attributes". Proceed by clicking on "Add Attribute".
+
+![add attribute](@site/docs/assets/guides/setup-sso/customize-user-attributes/1-add-attribute-scalekit.png)
+
+You'll notice the refreshed list of attributes now includes the recently added "Employee Number".
+
+![see attribute](@site/docs/assets/guides/setup-sso/customize-user-attributes/2-see-attribute-scalekit.png)
+
+Scalekit is setup to receive “Employee Number” attribute from your customers’ IdPs.
+
+## IdP to Relay to this Attribute
+
+Now, we'll set up an Identity Provider to transmit these details. For the purpose of this guide, we'll utilize Okta as the IdP. However, similar functionalities should be accessible with your chosen IdPs.
+
+In our specific instance, the "Employee Number" is a default attribute that hasn't been utilized yet. It's necessary to modify the profile’s "employee_number" attribute with any desired number for this example (For example, `1729`). For a detailed guide on how to achieve this, consult [Okta’s dedicated help article on updating profile attributes](https://help.okta.com/en-us/content/topics/users-groups-profiles/usgp-edit-user-attributes.htm#:~:text=Click%20the%20Profile%20tab).
+
+![map attribute](@site/docs/assets/guides/setup-sso/customize-user-attributes/3-map-attribute-okta.png)
+
+Alternatively, you can [add a new custom attribute in the Okta Profile Editor](https://help.okta.com/en-us/content/topics/users-groups-profiles/usgp-add-custom-user-attributes.htm#:~:text=In%20the%20Admin%20Console%20%2C%20go%20to%20Directory%20Profile%20Editor).
+
+## **Testing SSO for New Attributes**
+
+In your chosen organization, navigate to the **SSO Connection** tab. Here, provided that an Identity Provider (IdP) has already been established, you should find an option labeled "Test Connection".
+
+![map attr scalekit](@site/docs/assets/guides/setup-sso/customize-user-attributes/4-map-attribute-scalekit.png)
+
+Upon testing the connection, if you see the updated profile detail (such as the employee number), this signifies a successful test.
+
+Subsequently, these details will be integrated into your B2B application through Scalekit.

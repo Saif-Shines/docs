@@ -1,0 +1,121 @@
+---
+displayed_sidebar: homeSidebar
+---
+
+# Handle User Profile
+
+After initiating the Single Sign-On (SSO) process, user details are transmitted to your B2B application once they have authenticated with their Identity Provider (IdP). This guide is designed to assist in managing the authentication flow, particularly in terms of exchanging the "code" for necessary user profile details to finalize the user's login to the application.
+
+Maximise your understanding of this guide by using it in conjunction with the **scalekit-nextjs-example** repository and **Build Login Page** guide.
+
+## Redirection to the App
+
+The authorization URL carries a `redirect_uri` parameter in the first step to _remember_ to callback your B2B app after IdP authentication. This parameter reverts to your B2B application post-IdP authentication. For instance, while working in a development environment, the redirect URL maybe  [`http://localhost:3000/auth/callback`](http://localhost:3000/auth/callback).
+
+Handle the `/auth/callback` route in your app. This route receives user details in the form of a token after successful authentication. If the authentication is unsuccessful, your app will receive an error response, which needs to be addressed appropriately.
+
+For information on valid URIs, consult the [Redirect URI](https://www.example.org) section.
+
+## **Handling Callback Route**
+
+During the redirection process, the callback route receives a code as query parameters. This code can be utilized with Scalekit's SDK to retrieve two key types of information: user details and an access token.
+
+The user details, which come in the form of an encoded token, provide your application with information about the user who has logged into your app. On the other hand, the access token serves a different purpose. It plays an instrumental role in facilitating subsequent requests to Scalekit API endpoints, such as the /userinfo endpoint.
+
+```jsx
+    const { user, accessToken } = await scalekit.authenticateWithCode({
+      redirectUri: process.env.AUTH_REDIRECT_URI!,
+      code: code,
+    });
+```
+
+You can store this information as cookies with the httpOnly attribute enabled. This allows the inclusion of this information in HTTP calls to your servers securely.
+
+Here is a code example demonstrating this process. In this example, after setting the cookies, the user is directed to the /me path in the User Interface (UI).
+
+```jsx
+const url = request.nextUrl.clone();
+url.searchParams.delete("code");
+url.pathname = "/me";
+const response = NextResponse.redirect(url);
+response.cookies.set({
+  name: "user",
+  value: JSON.stringify(user),
+  httpOnly: true,
+  ...(!isDev && { secure: true }),
+});
+response.cookies.set({
+  name: "accessToken",
+  value: accessToken,
+  httpOnly: true,
+  ...(!isDev && { secure: true }),
+});
+return response;
+```
+
+Now that we have authenticated the user using single sign on by this time. Let’s look at a step that renders a page with user information.
+
+## Render User Profile
+
+We saw our B2B redirect the user to client-side `/me` page.
+
+Consider this page welcomes the user with their first and last name, along with general option to logout from the app.
+
+Here is a Next.js example code:
+
+```jsx
+<Container title="Me">
+  {!user ? (
+    <div className="space-y-4">
+      <h2 className="text-2xl">Access Denied</h2>
+      <p>
+        <Link href="/login" legacyBehavior>
+          <a className="underline underline-offset-4">
+            You must be signed in to view this page
+          </a>
+        </Link>
+      </p>
+    </div>
+  ) : (
+    <div className="space-y-4">
+      <h1>User Logged in!</h1>
+      {user.name && <h2 className="text-2xl">Welcome: {user.name}</h2>}
+      {user.givenName && (
+        <h3 className="text-2xl">Your First Name: {user.givenName}</h3>
+      )}
+      {user.familyName && (
+        <h3 className="text-2xl">Your Last Name: {user.familyName}</h3>
+      )}
+      <h3 className="text-2xl">Your Email: {user.email}</h3>
+      {user.username && (
+        <h3 className="text-2xl">Your Username: {user.username}</h3>
+      )}
+      <hr></hr>
+      <form action={logout}>
+        <button type="submit">Logout</button>
+      </form>
+    </div>
+  )}
+</Container>
+```
+
+The `user` and `logout` methods above would invoke `getUser(){..}` and `logOutUser(){..}` methods to get the cookies or even remove them accordingly.
+
+```jsx
+export const getUser = async (): Promise<{ user: User | null }> => {
+  const user = cookies().get("user")?.value;
+  if (!user) {
+    return { user: null };
+  }
+
+  return {
+    user: JSON.parse(user),
+  };
+};
+
+// delete the cookies when user logs out
+export const logOutUser = async (): Promise<void> => {
+  cookies().delete("user");
+  cookies().delete("accessToken");
+};
+```

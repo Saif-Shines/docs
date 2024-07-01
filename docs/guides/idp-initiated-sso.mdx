@@ -1,7 +1,7 @@
 ---
-
 hide_table_of_contents: false
 ---
+
 # How to handle SSO initiated by Identity Provider (IdP)
 
 IdP initiated SSO allows users to log into your application directly from their identity provider's portal. While convenient, it comes with security risks like stolen SAML assertions being used for unauthorized access.
@@ -12,8 +12,10 @@ In IdP initiated SSO:
 2. The identity provider sends the user's details as assertions to your application.
 3. Your application validates the assertions, retrieves the user information, and if everything checks out, logs the user in.
 
-<figure>![IdP initiated SSO workflow](../../docs/assets/guides/idp-initiated-sso.png)
-<figcaption>IdP initiated SSO workflow</figcaption></figure>
+<figure>
+  ![IdP initiated SSO workflow](../../docs/assets/guides/idp-initiated-sso.png)
+  <figcaption>IdP initiated SSO workflow</figcaption>
+</figure>
 
 Since the login starts from the identity provider's portal rather than your application, this flow is called IdP initiated SSO.
 
@@ -57,9 +59,15 @@ https://default_redirect_uri?idp_initiated_login=success&connection_id=conn_1244
 
 2. In your redirect URI handler, check for the `idp_initiated_login` parameter. If it's present and set to "success", construct a new authorization URL using the `connection_id`:
 
-
 ```javascript showLineNumbers title="handle_redirect_url.js"
-const {code, error, error_description, idp_initiated_login, connection_id, relay_state} = req.query;
+const {
+  code,
+  error,
+  error_description,
+  idp_initiated_login,
+  connection_id,
+  relay_state,
+} = req.query;
 
 if (error) {
   // handle errors
@@ -70,8 +78,8 @@ if (idp_initiated_login && idp_initiated_login === "success") {
   // handle idp initiated login
   const authorizationURL = scalekit.getAuthorizationUrl(redirectUri, {
     connectionId: connection_id,
-    ...(relay_state && {state: relay_state}) // optionally pass relay state as state parameter
-  })
+    ...(relay_state && { state: relay_state }), // optionally pass relay state as state parameter
+  });
 
   // next step is to redirect the user to this authorizationURL
 }
@@ -81,12 +89,11 @@ if (idp_initiated_login && idp_initiated_login === "success") {
 // if there are no errors and if this is not an IdP initiated SSO, then authenticate with the code
 const res = await sc.authenticateWithCode({
   code: code,
-  redirectUri: redirectUri
+  redirectUri: redirectUri,
 });
 
 // res.user has the authenticated user's details
 const userEmail = res.user.email;
-
 
 // next step is to create a session for this user and allow access to your application resources
 ```

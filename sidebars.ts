@@ -75,12 +75,12 @@ const sidebars: SidebarsConfig = {
             {
               type: "doc",
               label: "Customize Admin Portal Branding",
-              id: "guides/setup-sso/customize-admin-portal-branding",
+              id: "single-sign-on/domain-and-theme-customization",
             },
             {
               type: "doc",
               label: "Implement IdP initated SSO",
-              id: "guides/setup-sso/implement-idp-initiated-sso",
+              id: "guides/idp-initiated-sso",
             },
             {
               type: "doc",

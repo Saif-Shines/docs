@@ -1,5 +1,7 @@
 ---
 displayed_sidebar: homeSidebar
+pagination_next: sso/guides/setup-sso/handle-user-profile
+pagination_prev: null
 ---
 
 # Implementing Authorization Redirects in Login Flows
@@ -139,7 +141,7 @@ export async function getAuthorizationUrl(option: Option) {
 The <SimpleCode>getAuthorizationUrl()</SimpleCode> will return a URL string value similar to:
 
 ```sh
-https://<environment_domain>/oauth/authorize?
+https://b2b-app-dev.scalekit.dev/oauth/authorize?
     response_type=code&
     client_id=skc_1234&
     scope=openid%20profile&

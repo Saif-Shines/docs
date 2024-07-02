@@ -1,20 +1,22 @@
 ---
 displayed_sidebar: homeSidebar
+pagination_prev: sso/guides/setup-sso/build-login-page
+pagination_next: null
 ---
 
 # Handle User Profile
 
 After initiating the Single Sign-On (SSO) process, user details are transmitted to your B2B application once they have authenticated with their Identity Provider (IdP). This guide is designed to assist in managing the authentication flow, particularly in terms of exchanging the "code" for necessary user profile details to finalize the user's login to the application.
 
-Maximise your understanding of this guide by using it in conjunction with the **scalekit-nextjs-example** repository and **Build Login Page** guide.
+Maximise your understanding of this guide by using it in conjunction with the [scalekit-nextjs-example](https://github.com/scalekit-inc/scalekit-nextjs-example) repository and [Build Login Page](sso/guides/setup-sso/build-login-page) guide.
 
 ## Redirection to the App
 
-The authorization URL carries a `redirect_uri` parameter in the first step to _remember_ to callback your B2B app after IdP authentication. This parameter reverts to your B2B application post-IdP authentication. For instance, while working in a development environment, the redirect URL maybe Â [`http://localhost:3000/auth/callback`](http://localhost:3000/auth/callback).
+The authorization URL carries a <SimpleCode>redirect_uri</SimpleCode> parameter in the first step to remember to callback your B2B app after IdP authentication. This parameter reverts to your B2B application post-IdP authentication. For instance, while working in a development environment, the redirect URL maybe<SimpleCode>http:<nolink />//localhost:3000/auth/callback<SimpleCode>
 
-Handle the `/auth/callback` route in your app. This route receives user details in the form of a token after successful authentication. If the authentication is unsuccessful, your app will receive an error response, which needs to be addressed appropriately.
+Handle the <SimpleCode>/auth/callback</SimpleCode> route in your app. This route receives user details in the form of a token after successful authentication. If the authentication is unsuccessful, your app will receive an error response, which needs to be addressed appropriately.
 
-For information on valid URIs, consult the [Redirect URI](https://www.example.org) section.
+For information on valid URIs, consult the [Redirect URI](sso/guides/key-concepts/redirect-uri) section.
 
 ## **Handling Callback Route**
 
@@ -22,18 +24,18 @@ During the redirection process, the callback route receives a code as query para
 
 The user details, which come in the form of an encoded token, provide your application with information about the user who has logged into your app. On the other hand, the access token serves a different purpose. It plays an instrumental role in facilitating subsequent requests to Scalekit API endpoints, such as the /userinfo endpoint.
 
-```jsx
-    const { user, accessToken } = await scalekit.authenticateWithCode({
-      redirectUri: process.env.AUTH_REDIRECT_URI!,
-      code: code,
-    });
+```ts title="app/auth/callback/route.ts"
+const { user, accessToken } = await scalekit.authenticateWithCode({
+  redirectUri: process.env.AUTH_REDIRECT_URI!,
+  code: code,
+});
 ```
 
 You can store this information as cookies with the httpOnly attribute enabled. This allows the inclusion of this information in HTTP calls to your servers securely.
 
 Here is a code example demonstrating this process. In this example, after setting the cookies, the user is directed to the /me path in the User Interface (UI).
 
-```jsx
+```ts title="app/auth/callback/route.ts"
 const url = request.nextUrl.clone();
 url.searchParams.delete("code");
 url.pathname = "/me";
@@ -57,13 +59,13 @@ Now that we have authenticated the user using single sign on by this time. Letâ€
 
 ## Render User Profile
 
-We saw our B2B redirect the user to client-side `/me` page.
+We saw our B2B redirect the user to client-side <SimpleCode>/me</SimpleCode> page.
 
 Consider this page welcomes the user with their first and last name, along with general option to logout from the app.
 
 Here is a Next.js example code:
 
-```jsx
+```tsx title="app/me/page.tsx"
 <Container title="Me">
   {!user ? (
     <div className="space-y-4">
@@ -99,9 +101,9 @@ Here is a Next.js example code:
 </Container>
 ```
 
-The `user` and `logout` methods above would invoke `getUser(){..}` and `logOutUser(){..}` methods to get the cookies or even remove them accordingly.
+The <SimpleCode>user</SimpleCode> and <SimpleCode>logout</SimpleCode> methods above would invoke <SimpleCode>getUser(){..}</SimpleCode> and <SimpleCode>logOutUser(){..}</SimpleCode> methods to get the cookies or even remove them accordingly.
 
-```jsx
+```ts title="service/auth.ts"
 export const getUser = async (): Promise<{ user: User | null }> => {
   const user = cookies().get("user")?.value;
   if (!user) {

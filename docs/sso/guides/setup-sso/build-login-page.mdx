@@ -6,7 +6,7 @@ displayed_sidebar: homeSidebar
 
 The first step of Single Sign On (SSO) authentication flow takes the users to the Authorization URL before they authenticate with their Identity Provider. In this guide, learn how to build login page of your app that redirects the users of an organization to your staging environment’s Authorization endpoint.
 
-Maximise your understanding of this guide by using it in conjunction with the [scalekit-nextjs-example](https://www.example.com) repository.
+Maximise your understanding of this guide by using it in conjunction with the [scalekit-nextjs-example](https://github.com/scalekit-inc/scalekit-nextjs-example) repository.
 
 ## Create a Login Form
 
@@ -14,7 +14,7 @@ Start by creating a page in your web app where users can login. Use any programm
 
 Consider we want to build a login form that collects user’s email address to initiate a Single Sign On (SSO), it might look like this:
 
-<figure>
+<figure className="width-50">
   ![SSO using
   Email](@site/docs/sso/assets/guides/setup-sso/build-login-page/1-login-box.png)
   <figcaption>Single Sign On using Email</figcaption>
@@ -22,7 +22,7 @@ Consider we want to build a login form that collects user’s email address to i
 
 A rough code snippet of the same login form.
 
-```tsx
+```tsx title="app/login/page.tsx"
 <form className="space-y-6" onSubmit={initiateAuth}>
   <div>
     <label htmlFor="email" className="block text-sm text-gray-600">
@@ -52,7 +52,7 @@ A rough code snippet of the same login form.
 </form>
 ```
 
-The form tracks the users inputs and saves the current state and upon the button click initiates the Authorization — using `handleChange` and `initiateAuth` methods. Before we continue, next let’s look all the methods you can initiate the authentication flow.
+The form tracks the users inputs and saves the current state and upon the button click initiates the Authorization — using <SimpleCode>handleChange</SimpleCode> and <SimpleCode>initiateAuth</SimpleCode> methods. Before we continue, next let’s look all the methods you can initiate the authentication flow.
 
 ## **Choosing Your SSO Authentication Strategy**
 
@@ -60,7 +60,7 @@ There are multiple approaches for implementing SSO login in B2B apps. We have se
 
 **Using Email Address:** A familiar and straightforward approach for your users is give in their email address. Based on the domain in their email address, Scalekit will determine the SSO connection required to successfully log in the user.
 
-**Using Organization ID:** Scalekit will choose the SSO connection configured with B2B app based on the `organization_id` and initiates the SSO for the users.
+**Using Organization ID:** Scalekit will choose the SSO connection configured with B2B app based on the <SimpleCode>organization_id</SimpleCode> and initiates the SSO for the users.
 
 ```jsx
 <input
@@ -75,7 +75,7 @@ There are multiple approaches for implementing SSO login in B2B apps. We have se
 />
 ```
 
-**Using Connection ID:** In the cases when your B2B app has only the `connection_id`, this strategy can initiate SSO for the users.
+**Using Connection ID:** In the cases when your B2B app has only the <SimpleCode>connection_id</SimpleCode>, this strategy can initiate SSO for the users.
 
 ```jsx
 <input
@@ -90,15 +90,15 @@ There are multiple approaches for implementing SSO login in B2B apps. We have se
 />
 ```
 
-The code examples contain `name`, `id` attributes that lets your B2B app inform authentication strategy to choose.
+The code examples contain <SimpleCode>name</SimpleCode>, <SimpleCode>id</SimpleCode> attributes that lets your B2B app inform authentication strategy to choose.
 
 ## Initiate Authentication
 
 Next, redirect the user to the Authorization URL.
 
-Upon submitting the form, the `initateAuth` method is invoked and options required to construct the Authorization URL passed to `getAuthorizationUrl()` method. This guide provides a concise overview. For in-depth information on the required options, continue reading the Authorization URL section.
+Upon submitting the form, the <SimpleCode>initateAuth</SimpleCode> method is invoked and options required to construct the Authorization URL passed to <SimpleCode>getAuthorizationUrl()</SimpleCode> method. This guide provides a concise overview. For in-depth information on the required options, continue reading the Authorization URL section.
 
-```jsx
+```jsx title="app/login/page.tsx"
 const handleChange = (e: FormEvent<HTMLInputElement>): void => {
   const { name, value } = e.currentTarget;
   setState({
@@ -116,7 +116,7 @@ const initiateAuth = async (event: FormEvent) => {
 
 Since these operations happen the browser side we secure our app through industry best practices as follows:
 
-```jsx
+```jsx title="app/actions/login.ts"
 export async function getAuthorizationUrl(option: Option) {
   const { connectionId } = option;
   const state = v4();
@@ -136,9 +136,9 @@ export async function getAuthorizationUrl(option: Option) {
 }
 ```
 
-The `getAuthorizationUrl()` will return a URL string value similar to:
+The <SimpleCode>getAuthorizationUrl()</SimpleCode> will return a URL string value similar to:
 
-```jsx
+```sh
 https://<environment_domain>/oauth/authorize?
     response_type=code&
     client_id=skc_1234&

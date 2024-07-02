@@ -2,7 +2,7 @@
 description: Step-by-step guide to implement Single Sign-on in your application using Scalekit's APIs
 ---
 
-import InstallSDK from './../templates/install-sdk.md';
+import InstallSDK from '@site/docs/sso/templates/install-sdk.md';
 
 # Quickstart
 
@@ -237,7 +237,7 @@ if (error) {
 }
 
 // If it is an idp initiated login
-if (idp_initiated_login && idp_initiated_login === 'success') {
+if (idp_initiated_login && idp_initiated_login === "success") {
   const authorizationURL = scalekit.getAuthorizationUrl(redirectUri, {
     connectionId: connection_id,
     ...(relay_state && { state: relay_state }), // optional: pass relay state as state parameter

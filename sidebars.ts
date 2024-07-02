@@ -95,11 +95,11 @@ const sidebars: SidebarsConfig = {
           collapsed: true,
           collapsible: true,
           items: [
-            {
-              type: "doc",
-              label: "In-House Authentication",
-              id: "sso/guides/integrate-with-your-auth-system/inhouse-authentication",
-            },
+            // {
+            //   type: "doc",
+            //   label: "In-House Authentication",
+            //   id: "sso/guides/integrate-with-your-auth-system/inhouse-authentication",
+            // },
             {
               type: "doc",
               label: "Auth0",

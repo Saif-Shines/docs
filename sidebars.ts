@@ -54,12 +54,12 @@ const sidebars: SidebarsConfig = {
           items: [
             {
               type: "doc",
-              label: "Build Login Page",
+              label: "Add SSO to your Login Page",
               id: "guides/setup-sso/build-login-page",
             },
             {
               type: "doc",
-              label: "Handle User Profile",
+              label: "Fetch User Attributes from IdP",
               id: "guides/setup-sso/handle-user-profile",
             },
             {
@@ -74,17 +74,17 @@ const sidebars: SidebarsConfig = {
             },
             {
               type: "doc",
-              label: "Customize Admin Portal Branding",
+              label: "Admin Portal Branding",
               id: "single-sign-on/domain-and-theme-customization",
             },
             {
               type: "doc",
-              label: "Implement IdP initated SSO",
+              label: "Implement IdP Initiated SSO",
               id: "guides/idp-initiated-sso",
             },
             {
               type: "doc",
-              label: "Support Advanced SAML Settings",
+              label: "Customize SAML Assertions",
               id: "guides/setup-sso/support-advanced-saml-settings",
             },
           ],

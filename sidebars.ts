@@ -137,6 +137,10 @@ const sidebars: SidebarsConfig = {
       label: "Key Concepts",
       collapsible: true,
       collapsed: true,
+      link: {
+        type: "doc",
+        id: "sso/guides/key-concepts/index",
+      },
       items: [
         {
           type: "doc",

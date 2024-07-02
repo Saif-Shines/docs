@@ -17,22 +17,22 @@ const sidebars: SidebarsConfig = {
         {
           type: "doc",
           label: "Quickstart", // The link label
-          id: "single-sign-on/quickstart-sso", // The internal path
+          id: "sso/single-sign-on/quickstart-sso", // The internal path
         },
         {
           type: "doc",
           label: "Admin Portal",
-          id: "single-sign-on/quickstart-admin-portal",
+          id: "sso/single-sign-on/quickstart-admin-portal",
         },
         {
           type: "doc",
           label: "Customization",
-          id: "single-sign-on/domain-and-theme-customization",
+          id: "sso/single-sign-on/domain-and-theme-customization",
         },
         {
           type: "doc",
           label: "Launch Checklist",
-          id: "single-sign-on/launch-checklist",
+          id: "sso/single-sign-on/launch-checklist",
         },
       ],
     },
@@ -43,7 +43,7 @@ const sidebars: SidebarsConfig = {
       collapsed: false,
       link: {
         type: "doc",
-        id: "guides/index",
+        id: "sso/guides/index",
       },
       items: [
         {
@@ -55,37 +55,37 @@ const sidebars: SidebarsConfig = {
             {
               type: "doc",
               label: "Add SSO to your Login Page",
-              id: "guides/setup-sso/build-login-page",
+              id: "sso/guides/setup-sso/build-login-page",
             },
             {
               type: "doc",
               label: "Fetch User Attributes from IdP",
-              id: "guides/setup-sso/handle-user-profile",
+              id: "sso/guides/setup-sso/handle-user-profile",
             },
             {
               type: "doc",
               label: "Handle Raw Attributes from IdP",
-              id: "guides/setup-sso/handle-raw-idp-attributes",
+              id: "sso/guides/setup-sso/handle-raw-idp-attributes",
             },
             {
               type: "doc",
               label: "Customize User Attributes",
-              id: "guides/setup-sso/customize-user-attributes",
+              id: "sso/guides/setup-sso/customize-user-attributes",
             },
             {
               type: "doc",
               label: "Admin Portal Branding",
-              id: "single-sign-on/domain-and-theme-customization",
+              id: "sso/single-sign-on/domain-and-theme-customization",
             },
             {
               type: "doc",
               label: "Implement IdP Initiated SSO",
-              id: "guides/idp-initiated-sso",
+              id: "sso/guides/setup-sso/implement-idp-initiated-sso",
             },
             {
               type: "doc",
               label: "Customize SAML Assertions",
-              id: "guides/setup-sso/support-advanced-saml-settings",
+              id: "sso/guides/setup-sso/support-advanced-saml-settings",
             },
           ],
         },
@@ -98,17 +98,17 @@ const sidebars: SidebarsConfig = {
             {
               type: "doc",
               label: "In-House Authentication",
-              id: "guides/integrate-with-your-auth-system/inhouse-authentication",
+              id: "sso/guides/integrate-with-your-auth-system/inhouse-authentication",
             },
             {
               type: "doc",
               label: "Auth0",
-              id: "guides/integrate-with-your-auth-system/auth0",
+              id: "sso/guides/integrate-with-your-auth-system/auth0",
             },
             {
               type: "doc",
               label: "Firebase",
-              id: "guides/integrate-with-your-auth-system/firebase",
+              id: "sso/guides/integrate-with-your-auth-system/firebase",
             },
           ],
         },
@@ -121,12 +121,12 @@ const sidebars: SidebarsConfig = {
             {
               type: "doc",
               label: "Using Mock IdP",
-              id: "guides/test-your-integration/using-mock-idp",
+              id: "sso/guides/test-your-integration/using-mock-idp",
             },
             {
               type: "doc",
               label: "Using Okta",
-              id: "guides/test-your-integration/using-okta",
+              id: "sso/guides/test-your-integration/using-okta",
             },
           ],
         },
@@ -141,27 +141,27 @@ const sidebars: SidebarsConfig = {
         {
           type: "doc",
           label: "SSO Basics",
-          id: "single-sign-on/key-concepts/sso-basics",
+          id: "sso/guides/key-concepts/sso-overview",
         },
         {
           type: "doc",
           label: "Authorization URL",
-          id: "single-sign-on/key-concepts/authorization-url",
+          id: "sso/guides/key-concepts/authorization-url",
         },
         {
           type: "doc",
           label: "Redirect URI",
-          id: "single-sign-on/key-concepts/redirect-uri",
+          id: "sso/guides/key-concepts/redirect-uri",
         },
         {
           type: "doc",
           label: "ID Token Claims",
-          id: "single-sign-on/key-concepts/idtoken-claims",
+          id: "sso/guides/key-concepts/idtoken-claims",
         },
         {
           type: "doc",
           label: "Normalized User Profile",
-          id: "single-sign-on/key-concepts/user-profile",
+          id: "sso/guides/key-concepts/user-profile",
         },
       ],
     },
@@ -172,38 +172,38 @@ const sidebars: SidebarsConfig = {
       label: "Identity Providers",
       link: {
         type: "doc",
-        id: "integrations/integrations",
+        id: "sso/guides/integrations/integrations",
       },
       items: [
         {
           type: "doc",
           label: "Okta SAML",
-          id: "integrations/okta-saml",
+          id: "sso/guides/integrations/okta-saml",
         },
         {
           type: "doc",
           label: "Azure AD SAML",
-          id: "integrations/azure-ad-saml",
+          id: "sso/guides/integrations/azure-ad-saml",
         },
         {
           type: "doc",
           label: "OneLogin SAML",
-          id: "integrations/onelogin-saml",
+          id: "sso/guides/integrations/onelogin-saml",
         },
         {
           type: "doc",
           label: "JumpCloud SAML",
-          id: "integrations/jumpcloud-saml",
+          id: "sso/guides/integrations/jumpcloud-saml",
         },
         {
           type: "doc",
           label: "SAML",
-          id: "integrations/saml",
+          id: "sso/guides/integrations/saml",
         },
         {
           type: "doc",
           label: "OIDC",
-          id: "integrations/oidc",
+          id: "sso/guides/integrations/oidc",
         },
       ],
     },
@@ -214,12 +214,12 @@ const sidebars: SidebarsConfig = {
         {
           type: "doc",
           label: "Auth0",
-          id: "integrations/auth0",
+          id: "sso/guides/integrations/auth0",
         },
         {
           type: "doc",
           label: "Firebase",
-          id: "integrations/firebase",
+          id: "sso/guides/integrations/firebase",
         },
       ],
     },
@@ -233,7 +233,7 @@ const sidebars: SidebarsConfig = {
     {
       type: "doc",
       label: "Explore",
-      id: "guides/index",
+      id: "sso/guides/index",
     },
   ],
 };

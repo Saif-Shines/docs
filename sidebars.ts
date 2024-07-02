@@ -51,6 +51,10 @@ const sidebars: SidebarsConfig = {
           label: "Setup SSO",
           collapsed: true,
           collapsible: true,
+          link: {
+            type: "doc",
+            id: "sso/guides/setup-sso/index",
+          },
           items: [
             {
               type: "doc",
@@ -94,6 +98,10 @@ const sidebars: SidebarsConfig = {
           label: "Integrate with your Auth System",
           collapsed: true,
           collapsible: true,
+          link: {
+            type: "doc",
+            id: "sso/guides/integrate-with-your-auth-system/index",
+          },
           items: [
             // {
             //   type: "doc",
@@ -117,6 +125,10 @@ const sidebars: SidebarsConfig = {
           label: "Test your integration",
           collapsed: true,
           collapsible: true,
+          link: {
+            type: "doc",
+            id: "sso/guides/test-your-integration/index",
+          },
           items: [
             {
               type: "doc",

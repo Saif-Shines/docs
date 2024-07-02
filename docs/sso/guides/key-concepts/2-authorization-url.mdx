@@ -7,10 +7,10 @@ slug: authorization-url
 
 The Authorization URL is the endpoint used to initiate the Single Sign-On (SSO) process via Scalekit.
 
-## Endpoint Structure
+## Endpoint
 
-```http
-https://<environment_domain>/oauth/authorize?
+```sh
+https://b2b-app.scalekit.dev/oauth/authorize?
     response_type=code&
     client_id=skc_1234&
     scope=openid%20profile&
@@ -34,15 +34,15 @@ https://<environment_domain>/oauth/authorize?
 | `state`           | Optional    | Opaque string for request-response correlation                  |
 | `login_hint`      | Optional    | Email address of the user for authentication hint               |
 
-\* One of `organization_id`, `connection_id`, or `domain` must be provided.
+\* One of <SimpleCode>organization_id</SimpleCode>, <SimpleCode>connection_id</SimpleCode>, or <SimpleCode>domain</SimpleCode> must be provided.
 
 ## Usage Notes
 
-1. The `redirect_uri` must exactly match one of the authorized redirect values set in the API Credentials page.
-2. The `state` parameter is recommended for security purposes, including protection against cross-site request forgery.
-3. The `login_hint` can be used to prefill login information at the identity provider.
+1. The <SimpleCode>redirect_uri</SimpleCode> must exactly match one of the authorized redirect values set in the API Credentials page.
+2. The <SimpleCode>state</SimpleCode> parameter is recommended for security purposes, including protection against cross-site request forgery.
+3. The <SimpleCode>login_hint</SimpleCode> can be used to prefill login information at the identity provider.
 
-## SDK Usage Example
+## SDK Usage
 
 ```javascript
 const scalekit = new Scalekit(

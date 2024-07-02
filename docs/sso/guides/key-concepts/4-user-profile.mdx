@@ -1,17 +1,14 @@
 ---
 slug: user-profile
 displayed_sidebar: homeSidebar
+pagination_prev: null
 ---
 
 # Normalized User Profile
 
 A standardized representation of user information obtained after successful Single Sign-On (SSO) authentication via Scalekit, regardless of the Identity Provider's original format.
 
-## Example User Profile payload
-
-Below is the sample normalized user profile information in json.
-
-```js wordWrap=true
+```js wordWrap=true title="Example of Normalized User Profile"
 {
     "email": "john.doe@acmecorp.com",
     "email_verified": true,
@@ -19,7 +16,7 @@ Below is the sample normalized user profile information in json.
     "given_name": "John",
     "locale": "en",
     "name": "John Doe",
-    "picture": "https://lh3.googleusercontent.com/a/ACg8ocKNE4TZj2kyxZrxrwLOj094k7JCZtbaiEma17URCEf=s96-c",
+    "picture": "https://lh3.googleusercontent.com/a/ACg8ocKNE4TZ...iEma17URCEf=s96-c",
     "sub": "conn_17576372041941092;google-oauth2|104630259163176101050",
     "identities": [
         {
@@ -41,7 +38,7 @@ Below is the sample normalized user profile information in json.
                 "name": "John Doe",
                 "nickname": "john.doe",
                 "nonce": "Lof9SpxEzs9dhUlJzgrrbQ==",
-                "picture": "https://lh3.googleusercontent.com/a/ACg8ocKNE4TZj2kyxZrxrwLOj094k7JCZtbaiEma17URCEf=s96-c",
+                "picture": "https://lh3.googleusercontent.com/a/ACg8ocKNE4T...17URCEf=s96-c",
                 "sid": "5yqRJIfjPh8c7lr1s2N-IbY6WR8VyaIZ",
                 "sub": "google-oauth2|104630259163176101050",
                 "updated_at": "2024-04-30T10:02:30.988Z"
@@ -79,6 +76,6 @@ Below is the sample normalized user profile information in json.
 
 **Notes**
 
-- The `sub` field combines the `connection_id` and the provider's unique identifier.
+- The <SimpleCode>sub</SimpleCode> field combines the <SimpleCode>connection_id</SimpleCode> and the provider's unique identifier.
 - The identities array may contain multiple objects if the user has authenticated through different methods.
-- The `provider_raw_attributes` object contains all original data from the Identity Provider, which may vary based on the provider and connection type.
+- The <SimpleCode>provider_raw_attributes</SimpleCode> object contains all original data from the Identity Provider, which may vary based on the provider and connection type.

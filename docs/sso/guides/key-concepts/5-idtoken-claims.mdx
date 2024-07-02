@@ -58,12 +58,12 @@ The ID Token is a Base64-encoded JSON object with three parts: header, payload, 
 
 1. The ID Token is received over a secure HTTPS channel using the client secret.
 2. Validation of the ID Token is handled automatically when using the Scalekit SDK.
-3. The `sub` claim combines the `connection_id` and the provider's unique identifier.
-4. The `iss` claim must match your Scalekit environment URL.
-5. The `amr` claim typically contains the `connection_id` used for authentication.
+3. The <SimpleCode>sub</SimpleCode> claim combines the <SimpleCode>connection_id</SimpleCode> and the provider's unique identifier.
+4. The <SimpleCode>iss</SimpleCode> claim must match your Scalekit environment URL.
+5. The <SimpleCode>amr</SimpleCode> claim typically contains the <SimpleCode>connection_id</SimpleCode> used for authentication.
 
 This structure provides a neutral, factual reference for ID Token Claims in Scalekit, organized according to the data structure itself.
 
-An ID Token is nothing but a cryptographically signed Base64-encoded JSON object containing a set of name/value pairs about the user's profile information. Essentially, it is a JWT token. Ideally, it is advised that you validate an ID token before you use it, but since you are communicating directly with Scalekit over an intermediary-free HTTPS channel and using your client secret to exchange the `code` for the ID Token, you can be confident that the token you receive really comes from Scalekit and is valid.
+An ID Token is nothing but a cryptographically signed Base64-encoded JSON object containing a set of name/value pairs about the user's profile information. Essentially, it is a JWT token. Ideally, it is advised that you validate an ID token before you use it, but since you are communicating directly with Scalekit over an intermediary-free HTTPS channel and using your client secret to exchange the <SimpleCode>code</SimpleCode> for the ID Token, you can be confident that the token you receive really comes from Scalekit and is valid.
 
 If you are using our Scalekit SDK to exchange the code for the ID Token, the work of decoding the base64url-encoded values and parsing the JSON within, validating the JWT and accessing the claims within the ID token is automatically taken care of.

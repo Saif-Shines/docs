@@ -53,13 +53,13 @@ However, the service provider cannot verify that a malicious party didn't steal 
 Despite the security risks, IdP initiated SSO offers significant convenience to end users, allowing them to easily log into various applications used within their organization. As such, it's important for your application to support it.
 Fortunately, you can overcome the inherent security risks of IdP initiated SSO by converting the incoming IdP initiated request to an SP initiated SSO flow.
 
-1. When Scalekit receives an IdP initiated SSO request for one of your customers, it will ping your configured default `redirect_uri` with the `connection_id` as a request parameter:
+1. When Scalekit receives an IdP initiated SSO request for one of your customers, it will ping your configured default <SimpleCode>redirect_uri</SimpleCode> with the <SimpleCode>connection_id</SimpleCode> as a request parameter:
 
 ```sh
 https://default_redirect_uri?idp_initiated_login=success&connection_id=conn_12442
 ```
 
-2. In your redirect URI handler, check for the `idp_initiated_login` parameter. If it's present and set to "success", construct a new authorization URL using the `connection_id`:
+2. In your redirect URI handler, check for the <SimpleCode>idp_initiated_login</SimpleCode> parameter. If it's present and set to "success", construct a new authorization URL using the <SimpleCode>connection_id</SimpleCode>:
 
 ```javascript showLineNumbers title="handle_redirect_url.js"
 const {

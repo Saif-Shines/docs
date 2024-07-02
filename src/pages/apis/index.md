@@ -3,7 +3,7 @@ hide_table_of_contents: true
 title: "API Reference"
 
 ---
-import InstallSDK from '@site/docs/templates/_install-sdk.md';
+import InstallSDK from '@site/docs/sso/templates/_install-sdk.md';
 import ConnectionTag from './_connection.md';
 import AdminPortalTag from './_adminPortal.md';
 import OrganizationTag from './_organization.md';
@@ -104,8 +104,8 @@ import {Scalekit} from "@scalekit-sdk/node";
 
 // scalekit client takes care of authentication behind the scenes.
 const scalekit = new Scalekit(
-  <SCALEKIT_ENVIRONMENT_URL>, 
-  <SCALEKIT_CLIENT_ID>, 
+  <SCALEKIT_ENVIRONMENT_URL>,
+  <SCALEKIT_CLIENT_ID>,
   <SCALEKIT_CLIENT_SECRET>
 );
 ```
@@ -117,8 +117,8 @@ const scalekit = new Scalekit(
 from scalekit import ScalekitClient
 
 scalekit_client = ScalekitClient(
-  <SCALEKIT_ENVIRONMENT_URL>, 
-  <SCALEKIT_CLIENT_ID>, 
+  <SCALEKIT_ENVIRONMENT_URL>,
+  <SCALEKIT_CLIENT_ID>,
   <SCALEKIT_CLIENT_SECRET>
 )
 ```

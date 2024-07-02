@@ -1,10 +1,10 @@
 ---
-sidebar_position: 1
 toc_max_heading_level: 2
 pagination_prev: null
+pagination_next: null
 ---
 
-import InstallSDK from "./../templates/install-sdk.md";
+import InstallSDK from "@site/docs/sso/templates/install-sdk.md";
 
 # Customer self-service with admin portal
 
@@ -25,9 +25,7 @@ Begin by installing the Scalekit SDK, which provides necessary tools for creatin
 
 <InstallSDK />
 
-### Generate Magic Link
-
-Use the [generatePortalLink](/api-reference#tag/customer-portal/put/api/v1/organizations/{id}/portal_links) API to generate an Admin Portal link that is uniquely keyed to an organization. You can either embed this as an iframe in your application or redirect the user to this link for the admin to self serve configure SSO for their organization.
+Use the Generate Portal Link API to generate an Admin Portal link that is uniquely keyed to an organization. You can either embed this as an iframe in your application or redirect the user to this link for the admin to self serve configure SSO for their organization.
 
 <Tabs groupId="tech-stack">
 <TabItem value="nodejs" label="Node.js">
@@ -69,8 +67,6 @@ Log in to your Scalekit Dashboard and navigate to the desired organization's ove
   ![Integrate via Shareable
   Link](@site/docs/sso/assets/single-sign-on/admin-portal/2-sharable-link.png)
 </figure>
-
-### Generate Link
 
 <!-- <Show screenshot> -->
 

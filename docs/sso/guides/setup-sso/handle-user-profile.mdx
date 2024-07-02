@@ -12,7 +12,7 @@ Maximise your understanding of this guide by using it in conjunction with the [s
 
 ## Redirection to the App
 
-The authorization URL carries a <SimpleCode>redirect_uri</SimpleCode> parameter in the first step to remember to callback your B2B app after IdP authentication. This parameter reverts to your B2B application post-IdP authentication. For instance, while working in a development environment, the redirect URL maybe <SimpleCode>http://localhost:3000/auth/callback</SimpleCode>
+The authorization URL carries a <SimpleCode>redirect_uri</SimpleCode> parameter in the first step to remember to callback your B2B app after IdP authentication. This parameter reverts to your B2B application post-IdP authentication. For instance, while working in a development environment, the redirect URL maybe <SimpleCode>http:<nolink />//localhost:3000/auth/callback</SimpleCode>
 
 Handle the <SimpleCode>/auth/callback</SimpleCode> route in your app. This route receives user details in the form of a token after successful authentication. If the authentication is unsuccessful, your app will receive an error response, which needs to be addressed appropriately.
 
@@ -102,7 +102,9 @@ Here is a Next.js example code:
 ```
 
 The <SimpleCode>user</SimpleCode> and <SimpleCode>logout</SimpleCode> methods above would invoke
-<SimpleCode>getUser()</SimpleCode> and <SimpleCode>logOutUser()</SimpleCode> methods to get the cookies or even remove them accordingly.
+
+<SimpleCode>getUser()</SimpleCode> and <SimpleCode>logOutUser()</SimpleCode> methods
+to get the cookies or even remove them accordingly.
 
 ```ts title="service/auth.ts"
 export const getUser = async (): Promise<{ user: User | null }> => {

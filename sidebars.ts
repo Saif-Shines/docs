@@ -22,7 +22,7 @@ const sidebars: SidebarsConfig = {
         {
           type: "doc",
           label: "Testing SSO",
-          id: "sso/guides/test-your-integration/index",
+          id: "sso/guides/test-your-integration/using-okta",
         },
         {
           type: "doc",

@@ -5,178 +5,86 @@ description: SSO Configuration Guide for Okta
 pagination_next: null
 ---
 
-# Okta SAML
+import Card from "@site/src/components/Card/Card";
+import CardList from "@site/src/components/CardList/CardList";
 
-<Subtitle>
-  Step-by-step guide to configure Single Sign-on with Okta as the Identity
-  Provider.
-</Subtitle>
+# Testing SSO
 
-### 1. Create Enterprise Application
+<Subtitle>Verify a SSO connection is ready</Subtitle>
 
-Login to your **Okta Admin Console**. Go to **Applications→ Applications.**
+The role of Scalekit is to connect your app to your customer’s identity providers (IdPs) and have your users login into your application. Additionally, It also gives your app the user profile information. It is, however, crucial to ensure the success of the Single Sign-On (SSO) connection with the customer's IdPs.
 
-<figure>
-  ![Locate Applications](@site/docs/sso/assets/integrations/okta-saml/0.png)
-  <figcaption>Locate Applications</figcaption>
-</figure>
+Now, let's proceed to create an organization (represents a customer) using the Scalekit dashboard and test Okta as the selected Identity Provider.
 
-In the **Applications** tab, click on **Create App Integration.**
+## Create a Test Organization
+
+To emulate a customer scenario, let's create an Organization and name it "ChocolateShop". This action will consequently list "ChocolateShop" under the Organizations section, visible on the left navigation pane. Upon clicking on this item, the following details should be displayed:
 
 <figure>
-  ![Click on Create App
-  Integration](@site/docs/sso/assets/integrations/okta-saml/1.png)
-  <figcaption>Click on Create App Integration</figcaption>
+  ![Create a Test
+  Organization](@site/docs/sso/assets/single-sign-on/testing-sso/1.png)
+  <figcaption>A Test Organization, ChocolateShop</figcaption>
 </figure>
 
-Choose **SAML 2.0,** and click on **Next.**
+- _Admin Portal_ section generates a No-Code Admin Portal that you can share with your customers.
+- _Domains_ section holds the several domains that “ChocolateShop” owns.
+
+Select the “SSO Connection” tab so that we can continue configuring Okta as a Identity Provider.
+
+## Okta as a Test Identity Provider
+
+In the *SSO Connection* tab, choose Okta as the Identity Provider (IdP) that "ChocolateShop" employs, utilizing the SAML protocol. Typically, the IT Administrator managing "ChocolateShop" would log into the Okta Admin Console and use the [provided information to establish a connection with Scalekit](sso/guides/integrations/okta-saml.mdx).
 
 <figure>
-  ![Select SAML 2.0 ](@site/docs/sso/assets/integrations/okta-saml/2.png)
-  <figcaption>Select SAML 2.0 </figcaption>
+  ![Okta as a Test IdP](@site/docs/sso/assets/single-sign-on/testing-sso/2.png)
 </figure>
 
-Give your app a name, choose your app visibility settings, and click on **Next.**
+- The details related to the Service Provider, specifically the Scalekit Authentication Platform, must be appropriately registered with Okta.
+- The attributes are the data that Okta sends to your app, representing successful authentication with the *ChocolateShop*.
+- Okta-provided Metadata is securely stored within Scalekit for facilitating auth with your app.
+
+This step is crucial as it allows Okta to identify your app as the SSO Authentication Platform for "ChocolateShop" users.
+
+Ideally, any customer, such as ChocolateShop, should be able to log into your app via SSO, using their preferred Identity Providers.
+
+## Test the Connection
+
+It's time to validate the SSO connection, ensuring that _ChocolateShop_ users can seamlessly log into your app via SSO. When Scalekit receives the authenticated user information, you can consider the SSO connection as successfully established.
+
+To initiate the authentication flow, click the "Test Connection" button.
 
 <figure>
-  ![General Settings for SAML
-  integration](@site/docs/sso/assets/integrations/okta-saml/3.png)
-  <figcaption>General Settings for SAML integration</figcaption>
+  ![Test Connection - Step
+  1](@site/docs/sso/assets/single-sign-on/testing-sso/3.png)
 </figure>
 
-### 2. SAML Configuration
-
-Copy the **SSO URL** from the **SSO Configuration Portal**. Paste this link in the space for **SSO URL** on the **Okta Admin Console**.
+The user will then input their credentials and follow the necessary steps for verification. Upon successful verification, Okta will sign them in.
 
 <figure>
-  ![Copy SSO URL on Configuration
-  Portal](@site/docs/sso/assets/integrations/okta-saml/4.png)
-  <figcaption>Copy SSO URL on Configuration Portal</figcaption>
+  ![Test Connection - Step
+  3](@site/docs/sso/assets/single-sign-on/testing-sso/3.png)
 </figure>
+
+Subsequently, Okta will redirect the user profile details to Scalekit. You should be able to view these details in your Scalekit dashboard.
 
 <figure>
-  ![Paste SSO URL on Okta Admin
-  Console](@site/docs/sso/assets/integrations/okta-saml/5.png)
-  <figcaption>Paste SSO URL on Okta Admin Console</figcaption>
+  ![Test Connection - Step
+  3](@site/docs/sso/assets/single-sign-on/testing-sso/3.png)
 </figure>
 
-Similarly, copy the **Audience URI (SP Entity ID)** from the SSO Configuration Portal, and paste it in your **Okta Admin Console** in the space for **Audience URI.**
+Your app can access these details by integrating with the Scalekit SDK or the REST API.
 
-<figure>
-  ![Copy Audience URI on SSO Configuration
-  Portal](@site/docs/sso/assets/integrations/okta-saml/6.png)
-  <figcaption>Copy Audience URI on SSO Configuration Portal</figcaption>
-</figure>
+<CardList size="medium">
 
-<figure>
-  ![Paste Audience URI on Okta Admin
-  Console](@site/docs/sso/assets/integrations/okta-saml/7.png)
-  <figcaption>Paste Audience URI on Okta Admin Console </figcaption>
-</figure>
+<Card
+  title="Add SSO to your Login Page"
+  href="/sso/guides/setup-sso/build-login-page"
+  linkText="Explore"
+></Card>
+<Card
+  title="Handle User Attributes from IdP"
+  href="docs/sso/guides/setup-sso/handle-user-profile.mdx"
+  linkText="Explore"
+></Card>
 
-You can leave the Default Relay State as blank. Similarly, select your preferences for the Name ID format, Application Username, and Update application username on fields.
-
-<figure>
-  ![Selecting preferences on Okta Admin
-  Console](@site/docs/sso/assets/integrations/okta-saml/8.png)
-  <figcaption>Selecting preferences on Okta Admin Console</figcaption>
-</figure>
-
-### 3. Attribute Mapping
-
-Check the **Attribute Mapping** section in the **SSO Configuration Portal**, and carefully map the same attributes on your Okta Admin Console.
-
-<figure>
-  ![Attribute mapping on SSO Configuration Portal
-  ](@site/docs/sso/assets/integrations/okta-saml/9.png)
-  <figcaption>Attribute mapping on SSO Configuration Portal</figcaption>
-</figure>
-
-<figure>
-  ![Attribute mapping on Okta Admin Console
-  ](@site/docs/sso/assets/integrations/okta-saml/10.png)
-  <figcaption>Attribute mapping on Okta Admin Console</figcaption>
-</figure>
-
-### 4. Assign User/Group
-
-Go to the **Assignments** tab.
-
-<figure>
-  ![Locate Assignments tab](@site/docs/sso/assets/integrations/okta-saml/11.png)
-  <figcaption>Locate Assignments tab</figcaption>
-</figure>
-
-Click on **Assign** on the top navigation bar, select **Assign to People/Groups.**
-
-<figure>
-  ![Select Assign to People or Groups
-  ](@site/docs/sso/assets/integrations/okta-saml/12.png)
-  <figcaption>Select Assign to People or Groups</figcaption>
-</figure>
-
-Click on **Assign** next to the people you want to assign it to. Click on **Save and Go Back**, and click on **Done.**
-
-<figure>
-  ![Assign specific individuals or groups to
-  app](@site/docs/sso/assets/integrations/okta-saml/13.png)
-  <figcaption>Assign specific individuals or groups to app</figcaption>
-</figure>
-
-### 5. Finalize App
-
-Preview your SAML Assertion generated, and click on **Next.**
-
-<figure>
-  ![Preview SAML Assertion](@site/docs/sso/assets/integrations/okta-saml/14.png)
-  <figcaption>Preview SAML Assertion</figcaption>
-</figure>
-
-Fill the feedback form, and click on **Finish** once done.
-
-<figure>
-  ![Feedback form after configuring
-  SAML](@site/docs/sso/assets/integrations/okta-saml/15.png)
-  <figcaption>Feedback form after configuring SAML</figcaption>
-</figure>
-
-### 6. Upload IdP Metadata URL
-
-On the **Sign On** tab copy the **Metadata URL** from the **Metadata Details** section on **Okta Admin Console.**
-
-<figure>
-  ![Copy Metadata URL from Okta Admin
-  Console](@site/docs/sso/assets/integrations/okta-saml/16.png)
-  <figcaption>Copy Metadata URL from Okta Admin Console</figcaption>
-</figure>
-
-Under **Identify Provider Configuration,** select **Configure using Metadata URL,** and paste it under **App Federation Metadata URL** on the **SSO Configuration Portal.**
-
-<figure>
-  ![Paste Metadata URL on SSO Configuration
-  Portal](@site/docs/sso/assets/integrations/okta-saml/17.png)
-  <figcaption>Paste Metadata URL on SSO Configuration Portal</figcaption>
-</figure>
-
-### 7. Test Connection
-
-Click on **Test Connection.** If everything is done correctly, you will see a **Success** response as shown below.
-
-If the connection fails, you’ll see an error, the reason for the error, and a way to solve that error right on the screen.
-
-<figure>
-  ![Test SSO configuration](@site/docs/sso/assets/integrations/okta-saml/18.png)
-  <figcaption>Test SSO configuration</figcaption>
-</figure>
-
-### 8. Enable connection
-
-Click on **Enable Connection.** This will let all your selected users login to the new application via your Okta SSO.
-
-<figure>
-  ![Enable SSO on Okta Admin
-  Console](@site/docs/sso/assets/integrations/okta-saml/19.png)
-  <figcaption>Enable SSO on Okta Admin Console</figcaption>
-</figure>
-
-With this, we are done configuring your Okta application for an SSO login setup.
+</CardList>

@@ -21,14 +21,19 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: "doc",
-          label: "Admin Portal",
-          id: "sso/single-sign-on/quickstart-admin-portal",
+          label: "Testing SSO",
+          id: "sso/guides/test-your-integration/index",
         },
         {
           type: "doc",
-          label: "Customization",
-          id: "sso/single-sign-on/domain-and-theme-customization",
+          label: "Admin Portal",
+          id: "sso/single-sign-on/quickstart-admin-portal",
         },
+        // {
+        //   type: "doc",
+        //   label: "Customization",
+        //   id: "sso/single-sign-on/domain-and-theme-customization",
+        // },
         {
           type: "doc",
           label: "Launch Checklist",

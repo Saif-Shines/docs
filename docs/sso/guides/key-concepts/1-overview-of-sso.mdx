@@ -58,17 +58,19 @@ As you can imagine, in this workflow, the user login behaviour starts from your 
   <figcaption>IdP initiated SSO workflow</figcaption>
 </figure>
 
-In case of Identity Provider initiated SSO, 1. User logs into their identity provider
-portal and selects your application from within the IdP portal. 2. Identity Provider
-sends the user details as assertions to your application. 3. You validate assertions,
-retrieve the user information, and if everything checks, allow the user to successfully
-login yo your application.
+In case of Identity Provider initiated SSO,
+
+1. User logs into their identity provider
+   portal and selects your application from within the IdP portal.
+2. Identity Provider sends the user details as assertions to your application.
+3. You validate assertions, retrieve the user information, and if everything checks, allow the user to successfully
+   login yo your application.
 
 Since the user login workflow starts from the Identity Provider portal (and not from your application), this flow is called as Identity Provider initiated SSO (aka IdP-initiated SSO).
 
 #### Risks with IdP initiated SSO
 
-IdP initiated SSO is susceptible for common security attacks like Man In the Middle attack, Stolen Assertion attack or Assertion Replay attack etc. While it is possible to prevent these vulnerabilities by strictly implementing SAML 2.0 profile specification, it is always recommended to use SP initiated SSO as much as possible.
+IdP initiated SSO is susceptible for common security attacks like Man In the Middle attack, Stolen Assertion attack or Assertion Replay attack etc. Read the [IdP initiated SSO](/sso/guides/setup-sso/implement-idp-initiated-sso) guide to understand these risks and how to mitigate them.
 
 ## OIDC
 
@@ -86,4 +88,4 @@ In it's current format, OIDC only supports SP initiated Login. In this flow:
 
 Scalekit serves as an intermediary, abstracting the complexities involved in handling SSO with SAML and OIDC protocols. By integrating with Scalekit in just a few lines of code, your application can connect with numerous IdPs efficiently, ensuring security and compliance.
 
-Explore our [Quick Start](../single-sign-on/quickstart-sso.mdx) guide to integrate your application with Scalekit in just a few steps, leveraging our robust SSO solution.
+Explore our [Quick Start](/sso/single-sign-on/quickstart-sso) guide to integrate your application with Scalekit in just a few steps, leveraging our robust SSO solution.

@@ -19,44 +19,6 @@ This quickstart guide will show you how to implement Single Sign-on (SSO). Scale
   <figcaption>Scalekit in a nutshell</figcaption>
 </figure>
 
-## Sequence of Authentication
-
-Scalekit effectively handles Single Sign-On (SSO) with your customer's preferred Identity Providers (IdP) and retrieves user profile details for your Business-to-Business (B2B) app.
-
-Visualize the authentication flow with this high-level diagram:
-
-<figure>
-  ![Sequence Diagram for SSO
-  Workflow](@site/docs/sso/assets/single-sign-on/quickstart/how-sso-works.png)
-  <figcaption>How Scalekit integrates with your SSO flow</figcaption>
-</figure>
-
-1. User triggers SSO by logging into your app
-   1. When a user attempts to log in, your app recognizes the need for SSO.
-2. Your app redirects to Scalekit with the user identifier
-   1. Your app sends the user to Scalekit's Authorization URL.
-   2. It includes a unique identifier like the user's email or organization ID.
-   3. Your app also provides a Redirect URI for Scalekit to use later.
-3. Scalekit identifies the user's SSO provider.
-   1. Using the provided user details, Scalekit determines the correct SSO setup.
-   2. It then redirects the user to their organization's identity provider (IdP).
-4. IdP authenticates the user
-   1. The user's IdP takes over, authenticating them via SAML or OIDC protocols.
-   2. These are industry-standard protocols for secure, seamless authentication.
-5. IdP sends user profile to Scalekit
-   1. After successful authentication, the IdP shares user profile details with Scalekit.
-6. Scalekit redirects user back to your app.
-   1. Scalekit sends the user to the Redirect URI you provided earlier.
-   2. It includes a one-time code in this redirection.
-7. Your app exchanges code for user details.
-   1. Your app sends the one-time code and your API credentials to Scalekit.
-   2. In return, Scalekit provides the user details it received from the IdP.
-8. Your app logs in the user.
-   1. Using the user details from Scalekit, your app creates a session.
-   2. The user is now logged in and can access your app's resources.
-
-Scalekit puts all these exchange mechanisms behind these steps on autopilot. In this guide, we use Scalekit SDK to implement SSO. If you prefer to use API endpoints, refer to REST APIs.
-
 ## Environment Setup
 
 Before diving in, make sure you have:

@@ -5,9 +5,9 @@ slug: authorization-url
 
 # Authorization URL
 
-The Authorization URL is the endpoint used to initiate the Single Sign-On (SSO) process via Scalekit.
+Authorization URL is the first step in the Single Sign-on flow where you will redirect the user to Scalekit to authenticate the user with the appropriate Identity Provider.
 
-## Endpoint
+Your application constructs a URL with specific parameters that tell the authorization server(in this case: Scalekit) what the app is requesting. This URL looks like:
 
 ```sh
 https://b2b-app.scalekit.dev/oauth/authorize?

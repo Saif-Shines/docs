@@ -5,15 +5,40 @@ pagination_next: null
 title: How-To Guides
 ---
 
+import CardList from "@site/src/components/CardList/CardList";
+import Card from "@site/src/components/Card/Card";
+
 # How-To Guides
 
 <Subtitle>Pick up a guide and do something new with Scalekit.</Subtitle>
 
-|                                       Read                                       | To..                                                                                             |
-| :------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------- |
-|                      [Auth0](sso/guides/integrations/auth0)                      | Implement Scalekit's single sign-on with Auth0 as your identity provider, no custom code needed. |
-|                   [Firebase](sso/guides/integrations/firebase)                   | Lorem ipsum dolor sit amet, consectetur adipiscing elit.                                         |
-|       [Custom Attributes](sso/guides/setup-sso/customize-user-attributes)        | Maecenas iaculis orci quis mi dapibus sagittis.                                                  |
-|      [IdP initiated SSO](sso/guides/setup-sso/implement-idp-initiated-sso)       | Sed eleifend odio et eleifend molestie.                                                          |
-| [Customize SAML Assertions](sso/guides/setup-sso/support-advanced-saml-settings) | Quisque sagittis quam at diam venenatis porta.                                                   |
-|   [Access IdP Raw Attributes](sso/guides/setup-sso/handle-raw-idp-attributes)    | Mauris non urna sed quam congue ultricies.                                                       |
+Welcome to our guides: tools for applying skills to real-world problems. Carefully crafted, they turn complexity into simplicity.
+
+## Setup Single Sign-On
+
+| Dive Into                      | To                                                                                                                            |
+| ------------------------------ | ----------------------------------------------------------------------------------------------------------------------------- |
+| Add SSO to your Login Page     | Redirect users from your app's login page to the IdP's authorization URL, enabling a smooth SSO experience.                   |
+| Fetch User Attributes from IdP | Fetch user attributes from the IdP upon successful SSO authentication, allowing your app to access rich user profile data.    |
+| Handle Raw Attributes from IdP | Process the IdP's response as-is, without Scalekit's normalization.                                                           |
+| Customize User Attributes      | Enrich the user data your app receives by configuring the IdP to include additional custom attributes tailored to your needs. |
+| Brand-Aligned Admin Portal     | Customize the domain, logo, and other visual elements to create an admin portal that seamlessly matches your app's branding.  |
+| Implement IdP Initiated SSO    | Handle SSO journeys initiated directly from the IdP, ensuring a consistent experience starting from either end.               |
+| Customize SAML Assertions      | Fine-tune your IdP integration with customizable SAML assertions                                                              |
+
+## Integrate with your Auth System
+
+Connect you preferred Auth system to Scalekit and enable your users to log in to your application via SAML or OpenID Connect protocols.
+
+<CardList size="medium">
+
+  <Card title="Auth0" href="k/sso/guides/key-concepts/authorization-url" linkText="Explore">
+
+  </Card>
+  <Card title="Firebase" href="/sso/guides/key-concepts/redirect-uri" linkText="Explore">
+
+  </Card>
+
+</CardList>
+
+## Test your integration

@@ -17,7 +17,7 @@ const sidebars: SidebarsConfig = {
         {
           type: "doc",
           label: "Quickstart", // The link label
-          id: "sso/single-sign-on/quickstart-sso", // The internal path
+          id: "sso/single-sign-on/quickstart", // The internal path
         },
         {
           type: "doc",

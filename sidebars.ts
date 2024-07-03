@@ -11,7 +11,7 @@ const sidebars: SidebarsConfig = {
       collapsed: false,
       link: {
         type: "doc",
-        id: "home",
+        id: "sso/single-sign-on/index",
       },
       items: [
         {

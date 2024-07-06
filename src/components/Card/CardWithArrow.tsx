@@ -1,6 +1,6 @@
 import React from "react";
 import clsx from "clsx";
-import styles from "./card.module.css";
+import styles from "./cardwitharrow.module.css";
 import Link from "@docusaurus/Link";
 
 export type CardType = {

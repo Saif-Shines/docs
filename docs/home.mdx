@@ -7,6 +7,7 @@ title: ''
 ---
 
 import CardList from "@site/src/components/CardList/CardList";
+import CardWithArrow from "@site/src/components/Card/CardWithArrow";
 import ActionCard from "@site/src/components/ActionCard/ActionCard";
 import Hero from "@site/src/components/Hero/Hero";
 
@@ -16,19 +17,25 @@ import Hero from "@site/src/components/Hero/Hero";
   callToAction="Start simplifying your authentication process today!"
 />
 
+
 <CardList size="medium">
-  <ActionCard
+  <CardWithArrow
     title="Ready to dive in?"
-    description="Get started with Scalekit using our Quickstart guide. Master key concepts and implement Single Sign-On in no time."
-    buttonText="Quick Start"
-    buttonLink="/sso/single-sign-on/quickstart"
-    color="primary"
-  />
-  <ActionCard
-    title="New to Scalekit?"
-    description="Learn the basics of Scalekit by following our comprehensive tutorial. Build a simple authentication system and understand how Scalekit works."
-    buttonText="Try the Tutorial"
-    buttonLink="/tutorial"
-    color="secondary"
-  />
+    href="/sso/single-sign-on/quickstart"
+    linkText="Quickstart"
+  >
+    Get started with Scalekit using our Quickstart guide. Master key concepts and implement Single Sign-On in no time.
+  </CardWithArrow>
+  <CardWithArrow 
+  title="New to Scalekit?" 
+  href="=/apis" 
+  linkText="Try the Tutorial">
+    Refer to docs for API Endpoints
+  </CardWithArrow>
+
 </CardList>
+
+
+
+
+

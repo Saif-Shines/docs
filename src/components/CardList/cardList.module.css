@@ -10,7 +10,10 @@
 }
 
 .cardList.medium {
-  grid-template-columns: repeat(auto-fill, minmax(var(--min-width-large), 1fr));
+  /* grid-template-columns: repeat(auto-fill, minmax(var(--min-width-large), 1fr)); */
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Change the grid template to have two columns */
+  gap: 20px;
 }
 
 @media (min-width: 425px) {

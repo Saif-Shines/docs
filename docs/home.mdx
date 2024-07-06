@@ -10,12 +10,16 @@ import CardList from "@site/src/components/CardList/CardList";
 import CardWithArrow from "@site/src/components/Card/CardWithArrow";
 import ActionCard from "@site/src/components/ActionCard/ActionCard";
 import Hero from "@site/src/components/Hero/Hero";
+import ProductList from "@site/src/components/ProductList/ProductList";
+import { FaChartBar, FaToggleOn, FaPoll, FaDatabase, FaMagic, FaPlayCircle, FaFlask, FaUserCircle, FaChartPie } from 'react-icons/fa';
+
 
 <Hero 
   title="Your Gateway to Simplified B2B Authentication"
   subtitle="Scalekit is the ideal authentication platform for B2B SaaS applications. With our ready-to-deploy APIs and SDKs, you can implement features like multi-tenancy, IdP-initiated SSO, multiple SSO connections per organization, and a self-service UI for your customers' IT admins."
  
 />
+
 
 
 <CardList size="medium">
@@ -35,7 +39,20 @@ import Hero from "@site/src/components/Hero/Hero";
 
 </CardList>
 
+<br />
 
+# Discover
 
-
-
+<ProductList
+  items={[
+    { icon: <FaChartBar />, title: "Product analytics", description: "Understand your users and build better products" },
+    { icon: <FaToggleOn />, title: "Feature flags", description: "Toggle features to test the impact before rolling out" },
+    { icon: <FaPoll />, title: "Surveys", description: "Ask your users questions to get qualitative feedback" },
+    { icon: <FaDatabase />, title: "Data warehouse", description: "Extend Scalekit by adding your own functionality" },
+    { icon: <FaMagic />, title: "PostHog for AI", description: "Track metrics for AI & LLM products" },
+    { icon: <FaPlayCircle />, title: "Session replay", description: "Play back sessions to diagnose UI issues" },
+    { icon: <FaFlask />, title: "A/B testing", description: "A/B test UI changes and new features" },
+    { icon: <FaUserCircle />, title: "CDP", description: "Get a complete picture of all your data" },
+    { icon: <FaChartPie />, title: "Web analytics", description: "Easily track the most common web metrics" },
+  ]}
+/>

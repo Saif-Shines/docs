@@ -3,7 +3,7 @@ const grayMatter = require('gray-matter');
 const fs = require('fs');
 
 function listFilesInTopLevel(repositoryPath) {
-  repositoryPath = path.resolve(path.basename(__dirname), '../docs/guides'); // here
+  repositoryPath = path.resolve(path.basename(__dirname), '../docs/sso/guides'); 
 
   try {
     // Read the contents of the repository path

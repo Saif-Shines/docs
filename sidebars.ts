@@ -39,10 +39,10 @@ const sidebars: SidebarsConfig = {
           label: "Setup SSO",
           collapsed: true,
           collapsible: true,
-          link: {
-            type: "doc",
-            id: "sso/guides/setup-sso/index",
-          },
+          // link: {
+          //   type: "doc",
+          //   id: "sso/guides/setup-sso/index",
+          // },
           items: [
             {
               type: "doc",
@@ -54,11 +54,11 @@ const sidebars: SidebarsConfig = {
               label: "Fetch User Attributes from IdP",
               id: "sso/guides/setup-sso/handle-user-profile",
             },
-            {
-              type: "doc",
-              label: "Handle Raw Attributes from IdP",
-              id: "sso/guides/setup-sso/handle-raw-idp-attributes",
-            },
+            // {
+            //   type: "doc",
+            //   label: "Handle Raw Attributes from IdP",
+            //   id: "sso/guides/setup-sso/handle-raw-idp-attributes",
+            // },
             {
               type: "doc",
               label: "Customize User Attributes",
@@ -86,10 +86,10 @@ const sidebars: SidebarsConfig = {
           label: "Integrate with your Auth System",
           collapsed: true,
           collapsible: true,
-          link: {
-            type: "doc",
-            id: "sso/guides/integrate-with-your-auth-system/index",
-          },
+          // link: {
+          //   type: "doc",
+          //   id: "sso/guides/integrate-with-your-auth-system/index",
+          // },
           items: [
             // {
             //   type: "doc",
@@ -113,10 +113,10 @@ const sidebars: SidebarsConfig = {
           label: "Test your integration",
           collapsed: true,
           collapsible: true,
-          link: {
-            type: "doc",
-            id: "sso/guides/test-your-integration/index",
-          },
+          // link: {
+          //   type: "doc",
+          //   id: "sso/guides/test-your-integration/index",
+          // },
           items: [
             {
               type: "doc",

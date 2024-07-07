@@ -38,7 +38,7 @@ const config: Config = {
   themeConfig: {
     docs: {
       sidebar: {
-        hideable: true,
+        hideable: false,
       },
     },
 

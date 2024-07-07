@@ -1,7 +1,6 @@
 ---
 displayed_sidebar: homeSidebar
 description: Step-by-step guide to implement Single Sign-on in your application using Scalekit's APIs
-pagination_next: null
 pagination_prev: null
 ---
 
@@ -185,7 +184,7 @@ authorization_url = scalekit_client.get_authorization_url(
 </TabItem>
 </Tabs>
 
-Finally, handle the callback at your <SimpleCode>redirect_uri</SimpleCode> to complete the Authentication.
+Finally, handle the callback at your <SimpleCode>redirect_uri</SimpleCode> to complete the Authentication. Understand user authorization procedure through a NextJS example for [adding SSO to the Login Page](/sso/guides/setup-sso/build-login-page)
 
 ## Fetch User Details
 
@@ -234,8 +233,4 @@ const userEmail = res.user.email;
 </TabItem>
 </Tabs>
 
-We mitigate [risks](/sso/guides/setup-sso/implement-idp-initiated-sso) for the users by performing Service Provider (SP) initiated authorization when users accesses [from the IdP](https://example.com) instead of your app.
-
-## Next steps
-
-As we start our journey to offer enterprise-grade authentication, learn to [test the Single Sign On (SSO)](/sso/guides/test-your-integration/using-okta) and [launch checklist](/sso/single-sign-on/launch-checklist).
+We mitigate [risks](/sso/guides/setup-sso/implement-idp-initiated-sso) for the users by performing Service Provider (SP) initiated authorization when users accesses from the IdP instead of your app.

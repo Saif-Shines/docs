@@ -3,43 +3,26 @@ import { generateDocObjects } from "./src/utils/config-helper-fns";
 
 const sidebars: SidebarsConfig = {
   homeSidebar: [
+    
     {
-      type: "category",
-      label: "Single Sign-on",
-      className: "sso_category",
-      collapsible: false,
-      collapsed: false,
-      link: {
-        type: "doc",
-        id: "sso/single-sign-on/index",
-      },
-      items: [
-        {
-          type: "doc",
-          label: "Quickstart", // The link label
-          id: "sso/single-sign-on/quickstart", // The internal path
-        },
-        {
-          type: "doc",
-          label: "Testing SSO",
-          id: "sso/guides/test-your-integration/using-okta",
-        },
-        {
-          type: "doc",
-          label: "Admin Portal",
-          id: "sso/single-sign-on/quickstart-admin-portal",
-        },
-        // {
-        //   type: "doc",
-        //   label: "Customization",
-        //   id: "sso/single-sign-on/domain-and-theme-customization",
-        // },
-        {
-          type: "doc",
-          label: "Launch Checklist",
-          id: "sso/single-sign-on/launch-checklist",
-        },
-      ],
+      type: "doc",
+      label: "Quickstart", // The link label
+      id: "sso/single-sign-on/quickstart", // The internal path
+    },
+    {
+      type: "doc",
+      label: "Testing SSO",
+      id: "sso/guides/test-your-integration/using-okta",
+    },
+    {
+      type: "doc",
+      label: "Admin Portal",
+      id: "sso/single-sign-on/quickstart-admin-portal",
+    },
+    {
+      type: "doc",
+      label: "Launch Checklist",
+      id: "sso/single-sign-on/launch-checklist",
     },
     {
       type: "category",

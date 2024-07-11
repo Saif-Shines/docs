@@ -73,7 +73,7 @@ const config: Config = {
           items: [
             {
               label: "Integrations",
-              href: "/integrations",
+              href: "/sso/guides/integrations",
             },
             {
               label: "Blog",

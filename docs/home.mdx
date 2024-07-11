@@ -3,7 +3,7 @@ sidebar_position: 1
 slug: ./
 hide_table_of_contents: true
 pagination_next: null
-title: ''
+title: ""
 ---
 
 import CardList from "@site/src/components/CardList/CardList";
@@ -11,54 +11,101 @@ import CardWithArrow from "@site/src/components/Card/CardWithArrow";
 import ActionCard from "@site/src/components/ActionCard/ActionCard";
 import Hero from "@site/src/components/Hero/Hero";
 import ProductList from "@site/src/components/ProductList/ProductList";
-import { FaChartBar, FaToggleOn, FaPoll, FaDatabase, FaMagic, FaPlayCircle, FaFlask, FaUserCircle, FaChartPie } from 'react-icons/fa';
+import {
+  FaChartBar,
+  FaToggleOn,
+  FaPoll,
+  FaDatabase,
+  FaMagic,
+  FaCode,
+  FaPlayCircle,
+  FaFlask,
+  FaUserCircle,
+  FaChartPie,
+} from "react-icons/fa";
 
+<div class="row">
+<div class="col col-2">
+<Hero title="Scalekit Developer Documentation" subtitle="Implement Single Sign-on in just a few hours with our quick start guides, SDKs and code samples!">
+<FancyLink
+  href="/sso/guides/key-concepts/sso-overview"
+  linkText="Learn Single Sign-on basics"
+></FancyLink>
+<FancyLink
+  href="/sso/single-sign-on/quickstart"
+  linkText="Implement SSO using our Quickstart Guide"
+></FancyLink>
+<FancyLink
+  href="/sdks"
+  linkText="Start building with our SDKs"
+></FancyLink>
+</Hero>
+</div>
+<div class="col col-2">
+![Welcome to Scalekit Docs](/img/developer.png)
+</div>
+</div>
 
-<Hero 
-  title="Your Gateway to Simplified B2B Authentication"
-  subtitle="Scalekit is the ideal authentication platform for B2B SaaS applications. With our ready-to-deploy APIs and SDKs, you can implement features like multi-tenancy, IdP-initiated SSO, multiple SSO connections per organization, and a self-service UI for your customers' IT admins."
- 
-/>
-
-
-
-<CardList size="medium">
-  <CardWithArrow
-    title="Ready to dive in?"
-    href="/sso/single-sign-on/quickstart"
-    linkText="Quickstart"
-  >
-    Get started with Scalekit using our Quickstart guide. Master key concepts and implement Single Sign-On in no time.
-  </CardWithArrow>
-  <CardWithArrow 
-  title="API Reference" 
-  href="/apis" 
-  linkText="Explore">
-    A reference of our APIs and SDKs.
-  </CardWithArrow>
-
-
-
-</CardList>
-
-<br />
-
-# Discover
-
+### Implement Single Sign-on
 <ProductList
-  items={[
-    { icon: <FaChartBar />, title: "New to Scalekit?", description: "See the sequence of Single Sign On", href: "/sso/single-sign-on" },
-    { icon: <FaToggleOn />, title: "Scalekit SDKs", description: "Secure your apps with our robust SDKs.", href: "/sdks" },
-    { icon: <FaPoll />, title: "Integrations", description: "Connect Scalekit with your favorite tools.", href: "/sso/guides/integrations" },
-    { icon: <FaDatabase />, title: "Implementation Guides", description: "Extend Scalekit to suit your needs.", href: "/sso/guides" },
-    { icon: <FaMagic />, title: "Blog", description: "Latest trends, tips, and insights in Enterprise-grade authentication.", href: "https://www.scalekit.com/blog" },
-    { icon: <FaPlayCircle />, title: "Admin Portal", description: "Allow your customers to manage their own SSO.", href: "/sso/single-sign-on/domain-and-theme-customization" },
-    { icon: <FaFlask />, title: "Concepts", description: "Key Concepts for implementing B2B authentication.", href: "/sso/guides/key-concepts" },
-  ]}
-/>
+items={[{
+  title: "Single Sign-on Quickstart",
+  description: "Implement SSO using our quick start guide.",
+  href: "/sso/single-sign-on/quickstart",
+},{
+  title: "Admin Portal",
+  description: "Integrate self-serve SSO Configuration portal via no-code or APIs.",
+  href: "/sso/single-sign-on/quickstart-admin-portal",
+},{
+  title: "Launch Checklist",
+  description: "Understand critical checklist items before you go-live",
+  href: "/sso/single-sign-on/launch-checklist",
+},]}>
+</ProductList>
+###  Developer Resources
+<ProductList
+items={[{
+  title: "Scalekit SDKs",
+  description: "Secure your apps with our robust SDKs.",
+  href: "/sdks",
+},{
+  title: "API Reference",
+  description: "Detailed documentation of our APIs along with code samples.",
+  href: "/apis",
+},{
+  title: "Idp Initiated SSO",
+  description: "Understand IdP initiated SSO and how to implement using Scalekit Platform.",
+  href: "/sso/guides/setup-sso/implement-idp-initiated-sso",
+},{
+  title: "Integration with Auth0",
+  description: "Integrate Scalekit in your Auth0 tenant to implement Enterprise SSO",
+  href: "/sso/guides/integrate-with-your-auth-system/auth0",
+},{
+  title: "Integration with Firebase",
+  description: "Integrate Scalekit in your Firebase project to implement Enterprise SSO",
+  href: "/sso/guides/integrate-with-your-auth-system/auth0",
+}, {
+  title: "Add SSO to your login page",
+  description: "Tutorial explaining different strategies to implement SSO in your login page",
+  href: "/sso/guides/setup-sso/build-login-page",
+}]}>
 
+</ProductList>
 
-<footer>
-  &copy; 2024 ScaleKit Inc. All rights reserved.
-</footer>
+### Learning Guides
+<ProductList
+items={[{
+  title: "How SSO Works",
+  description: "Introductory tutorial that explains how enterprise SSO works via SAML and OIDC",
+  href: "/sso/guides/key-concepts/sso-overview",
+},{
+  title: "Blog",
+  description: "Read tutorials, guides and product updates.",
+  href: "https://www.scalekit.com/blog",
+},{
+  title: "Glossary",
+  description: "Understand our key terms and concepts.",
+  href: "/manage-scalekit/glossary",
+},]}>
 
+</ProductList>

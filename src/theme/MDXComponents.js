@@ -13,7 +13,8 @@ import IntersectingHeader from "../components/IntersectingHeader";
 import { APIEndpoint } from "../components/APIEndpoint";
 import Link from "@docusaurus/Link";
 import Markdown from "react-markdown";
-
+import { SimpleCard } from "@site/src/components/ProductList/ProductList";
+import { FancyLink } from "@site/src/components/Card/CardWithArrow";
 export default {
   // Re-use the default mapping
   ...MDXComponents,
@@ -34,4 +35,6 @@ export default {
   APIEndpoint,
   Link,
   Markdown,
+  SimpleCard,
+  FancyLink,
 };

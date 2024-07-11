@@ -1,5 +1,5 @@
-import React from 'react';
-import styles from './productList.module.css';
+import React from "react";
+import styles from "./productList.module.css";
 
 type ProductItem = {
   icon: React.ReactNode;
@@ -17,7 +17,7 @@ const ProductList: React.FC<ProductListProps> = ({ items }) => {
     <div className={styles.productList}>
       {items.map((item, index) => (
         <a key={index} href={item.href} className={styles.productItem}>
-          <div className={styles.icon}>{item.icon}</div>
+          {item.icon && <div className={styles.icon}>{item.icon}</div>}
           <div>
             <h3 className={styles.title}>{item.title}</h3>
             <p className={styles.description}>{item.description}</p>
@@ -27,5 +27,17 @@ const ProductList: React.FC<ProductListProps> = ({ items }) => {
     </div>
   );
 };
+
+export function SimpleCard({ children, ...props }) {
+  return (
+    <a href={props.href} className={styles.productItem}>
+      {props.icon ? <div className={styles.icon}>{props.icon}</div> : ""}
+      <div>
+        <h3 className={styles.title}>{props.title}</h3>
+        <p className={styles.description}>{props.description}</p>
+      </div>
+    </a>
+  );
+}
 
 export default ProductList;

@@ -27,7 +27,13 @@ const CardContentWrapper = ({
   return <div className={clsx(styles.container)}>{children}</div>;
 };
 
-const CardWithArrow = ({ href, title, description, linkText, children }: PropType) => {
+const CardWithArrow = ({
+  href,
+  title,
+  description,
+  linkText,
+  children,
+}: PropType) => {
   return (
     <CardContentWrapper href={href}>
       {title && <h5 className={clsx(styles.title)}>{title}</h5>}
@@ -42,8 +48,22 @@ const CardWithArrow = ({ href, title, description, linkText, children }: PropTyp
           </div>
         </div>
       )}
-     
     </CardContentWrapper>
+  );
+};
+
+export const FancyLink = function ({ linkText, href }) {
+  return (
+    <Link to={href}>
+      {linkText && (
+        <div className={clsx(styles.linkTextContainer)}>
+          <div>
+            <span>{linkText}</span>
+            <span className={clsx(styles.rightArrow)}>→</span>
+          </div>
+        </div>
+      )}
+    </Link>
   );
 };
 

@@ -5,7 +5,7 @@ import type * as Preset from "@docusaurus/preset-classic";
 const config: Config = {
   title: "Scalekit Docs",
   tagline: "Enterprise Ready Authentiction Platform for SaaS",
-  favicon: "img/favicon.ico",
+  favicon: "img/Favicon.svg",
   url: "https://docs.scalekit.com",
   baseUrl: "/",
   trailingSlash: false,
@@ -51,6 +51,11 @@ const config: Config = {
           "https://assets-global.website-files.com/65b87d98fa638289e10b8f61/65c269053d86c92e0cf91db5_scalekit-logo.svg",
       },
       items: [
+        {
+          to: "/sso/single-sign-on/quickstart",
+          label: "Single Sign-on",
+          position: "left",
+        },
         {
           to: "/apis",
           label: "API Reference",
@@ -122,6 +127,9 @@ const config: Config = {
     prism: {
       theme: prismThemes.github,
       additionalLanguages: ["bash"],
+    },
+    footer: {
+      copyright: `Copyright © ${new Date().getFullYear()} Scalekit Inc.`,
     },
   } satisfies Preset.ThemeConfig,
 };

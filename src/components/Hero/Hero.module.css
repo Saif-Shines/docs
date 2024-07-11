@@ -1,25 +1,23 @@
 .hero {
-    text-align: center;
     padding: 4rem 2rem 2rem;
     max-width: 768px;
     margin: 0 auto;
-  }
-  
-  .title {
-    font-size: 3rem !important;
-    font-weight: 700;
-    margin-bottom: 1rem;
-    color: #4F5EFF
-  }
-  
-  .subtitle {
+}
+
+.title {
+    font-weight: 600;
+    margin-bottom: 0.5rem !important;
+    color: #4f5eff;
+}
+
+.subtitle {
     font-size: 1.3rem;
     line-height: 1.5;
     margin-bottom: 1rem;
-  }
-  
-  .callToAction {
+}
+
+.callToAction {
     font-size: 1.4rem;
     font-weight: 500;
     margin-top: 2rem;
-  }
+}

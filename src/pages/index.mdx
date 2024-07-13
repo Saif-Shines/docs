@@ -12,18 +12,7 @@ import CardWithArrow from "@site/src/components/Card/CardWithArrow";
 import ActionCard from "@site/src/components/ActionCard/ActionCard";
 import Hero from "@site/src/components/Hero/Hero";
 import ProductList from "@site/src/components/ProductList/ProductList";
-import {
-  FaChartBar,
-  FaToggleOn,
-  FaPoll,
-  FaDatabase,
-  FaMagic,
-  FaCode,
-  FaPlayCircle,
-  FaFlask,
-  FaUserCircle,
-  FaChartPie,
-} from "react-icons/fa";
+import { IoHelpBuoyOutline, IoHelpCircleOutline } from "react-icons/io5";
 
 <div className="homepage">
 <div class="row">
@@ -110,5 +99,9 @@ items={[{
 },]}>
 
 </ProductList>
+
+<hr />
+<div className="footerLink"><IoHelpBuoyOutline /> Need help? <a href="mailto:support@scalekit.com">Contact Support</a></div>
+<div className="footerLink"><IoHelpCircleOutline /> Questions? <a href="mailto:hi@scalekit.com">Contact Us</a></div>
 
 </div>

@@ -6,8 +6,12 @@
  */
 
 import React, { useState } from "react";
-import { PostHogProvider, usePostHog } from "posthog-js/react";
 import { FaRegThumbsUp, FaRegThumbsDown } from "react-icons/fa";
+import { IoHelpBuoyOutline, IoHelpCircleOutline } from "react-icons/io5";
+import { PostHogProvider, usePostHog } from "posthog-js/react";
+const options = {
+  api_host: "https://us.i.posthog.com",
+};
 
 const DocsRating = ({ label }) => {
   const [haveVoted, setHaveVoted] = useState(false);
@@ -40,4 +44,26 @@ const DocsRating = ({ label }) => {
   );
 };
 
-export default DocsRating;
+const DocFeedbackComponent = () => {
+  return (
+    <PostHogProvider
+      apiKey="phc_85pLP8gwYvRCQdxgLQP24iqXHPRGaLgEw4S4dgZHJZ"
+      options={options}
+    >
+      <div className="feedbackFooter">
+        {<DocsRating />}
+        <hr />
+        <div className="footerLink">
+          <IoHelpBuoyOutline />
+          Need help? <a href="mailto:support@scalekit.com">Contact Support</a>
+        </div>
+        <div className="footerLink">
+          <IoHelpCircleOutline />
+          Questions? <a href="mailto:hi@scalekit.com">Contact Us</a>
+        </div>
+      </div>
+    </PostHogProvider>
+  );
+};
+
+export default DocFeedbackComponent;

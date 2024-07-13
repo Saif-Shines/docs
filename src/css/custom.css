@@ -326,7 +326,8 @@ p.subtitle {
 }
 
 article,
-nav.pagination-nav {
+nav.pagination-nav,
+.feedbackFooter {
     padding: 0 7%;
 }
 
@@ -806,6 +807,7 @@ footer {
     line-height: 1em;
     vertical-align: middle;
     height: 1em;
+    font-size: 0.9rem;
 }
 .footerLink svg {
     height: 1em;

@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { FaRegThumbsUp, FaRegThumbsDown } from "react-icons/fa";
 import { IoHelpBuoyOutline, IoHelpCircleOutline } from "react-icons/io5";
 import { PostHogProvider, usePostHog } from "posthog-js/react";
@@ -15,14 +15,20 @@ const options = {
 
 const DocsRating = ({ label }) => {
   const [haveVoted, setHaveVoted] = useState(false);
+  const [showTextFeedback, setShowTextFeedback] = useState(false);
   const posthog = usePostHog();
   const giveFeedback = (value) => {
     posthog?.capture("docs_feedback", { label: label, liked: value });
-    setHaveVoted(true);
+    if (value == 1) {
+      setHaveVoted(true);
+    } else {
+      setShowTextFeedback(true);
+    }
   };
   const giveFullFeedback = (value) => {
     posthog?.capture("docs_feedback_text", { label: label, comments: value });
     setHaveVoted(true);
+    setShowTextFeedback(false);
   };
 
   return (
@@ -38,8 +44,34 @@ const DocsRating = ({ label }) => {
           <a className="btn-outline" onClick={() => giveFeedback(0)}>
             <FaRegThumbsDown /> No
           </a>
+          <TextFeedbackComponent
+            className={!showTextFeedback ? "hidden" : "shown"}
+            onFeedback={(feedback) => giveFullFeedback(feedback)}
+          />
         </>
       )}
+    </div>
+  );
+};
+
+const TextFeedbackComponent = ({ className, onFeedback }) => {
+  const ref = useRef();
+
+  return (
+    <div className={className + " feedbackContainer "}>
+      <textarea
+        ref={ref}
+        rows="3"
+        placeholder="Sorry to hear that. How can we help you?"
+      />
+      <a
+        className="btn btn-outline"
+        onClick={() =>
+          ref.current && ref.current.value && onFeedback(ref.current.value)
+        }
+      >
+        Send Feedback
+      </a>
     </div>
   );
 };

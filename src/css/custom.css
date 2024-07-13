@@ -1244,6 +1244,7 @@ article:has(.custom_container) {
     font-family: Inter, sans-serif;
     cursor: pointer;
     align-items: center;
+    background-color: #fff;
 }
 .btn-outline svg {
     height: 12px;
@@ -1251,4 +1252,21 @@ article:has(.custom_container) {
 .btn-outline:hover {
     background-color: #f9f9f9;
     text-decoration: none;
+}
+.hidden {
+    display: none;
+}
+.feedbackContainer {
+    text-align: left;
+    margin-left: 0;
+    margin-top: 20px;
+}
+.feedbackContainer textarea {
+    border: 1px solid #cecece;
+    width: 100%;
+    font-size: 0.9rem;
+}
+.feedbackContainer a.btn {
+    font-size: 0.9rem;
+    margin-left: 0;
 }

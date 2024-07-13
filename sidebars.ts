@@ -3,7 +3,6 @@ import { generateDocObjects } from "./src/utils/config-helper-fns";
 
 const sidebars: SidebarsConfig = {
   homeSidebar: [
-    
     {
       type: "doc",
       label: "Quickstart", // The link label
@@ -176,38 +175,38 @@ const sidebars: SidebarsConfig = {
       label: "Identity Providers",
       link: {
         type: "doc",
-        id: "sso/guides/integrations/integrations",
+        id: "integrations/integrations",
       },
       items: [
         {
           type: "doc",
           label: "Okta SAML",
-          id: "sso/guides/integrations/okta-saml",
+          id: "integrations/okta-saml",
         },
         {
           type: "doc",
           label: "Azure AD SAML",
-          id: "sso/guides/integrations/azure-ad-saml",
+          id: "integrations/azure-ad-saml",
         },
         {
           type: "doc",
           label: "OneLogin SAML",
-          id: "sso/guides/integrations/onelogin-saml",
+          id: "integrations/onelogin-saml",
         },
         {
           type: "doc",
           label: "JumpCloud SAML",
-          id: "sso/guides/integrations/jumpcloud-saml",
+          id: "integrations/jumpcloud-saml",
         },
         {
           type: "doc",
           label: "SAML",
-          id: "sso/guides/integrations/saml",
+          id: "integrations/saml",
         },
         {
           type: "doc",
           label: "OIDC",
-          id: "sso/guides/integrations/oidc",
+          id: "integrations/oidc",
         },
       ],
     },
@@ -218,12 +217,12 @@ const sidebars: SidebarsConfig = {
         {
           type: "doc",
           label: "Auth0",
-          id: "sso/guides/integrations/auth0",
+          id: "integrations/auth0",
         },
         {
           type: "doc",
           label: "Firebase",
-          id: "sso/guides/integrations/firebase",
+          id: "integrations/firebase",
         },
       ],
     },

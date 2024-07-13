@@ -1,12 +1,13 @@
 ---
 sidebar_position: 1
-slug: ./
+slug: /
 hide_table_of_contents: true
 pagination_next: null
-title: ""
+title: "Home"
 ---
 
 import CardList from "@site/src/components/CardList/CardList";
+import Card from "@site/src/components/Card/Card";
 import CardWithArrow from "@site/src/components/Card/CardWithArrow";
 import ActionCard from "@site/src/components/ActionCard/ActionCard";
 import Hero from "@site/src/components/Hero/Hero";
@@ -24,6 +25,7 @@ import {
   FaChartPie,
 } from "react-icons/fa";
 
+<div className="homepage">
 <div class="row">
 <div class="col col-2">
 <Hero title="Scalekit Developer Documentation" subtitle="Implement Single Sign-on in just a few hours with our quick start guides, SDKs and code samples!">
@@ -45,8 +47,7 @@ import {
 ![Welcome to Scalekit Docs](/img/developer.png)
 </div>
 </div>
-
-### Implement Single Sign-on
+## Implement Single Sign-on
 <ProductList
 items={[{
   title: "Single Sign-on Quickstart",
@@ -62,7 +63,7 @@ items={[{
   href: "/sso/single-sign-on/launch-checklist",
 },]}>
 </ProductList>
-###  Developer Resources
+##  Developer Resources
 <ProductList
 items={[{
   title: "Scalekit SDKs",
@@ -92,7 +93,7 @@ items={[{
 
 </ProductList>
 
-### Learning Guides
+## Learning Guides
 <ProductList
 items={[{
   title: "How SSO Works",
@@ -109,3 +110,5 @@ items={[{
 },]}>
 
 </ProductList>
+
+</div>

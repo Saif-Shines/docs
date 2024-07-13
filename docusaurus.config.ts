@@ -88,14 +88,14 @@ const config: Config = {
         },
         {
           type: "search",
-          position: "left",
+          position: "right",
         },
-        // {
-        //   to: "https://app.scalekit.com",
-        //   label: "Go to Dashboard ->",
-        //   position: "right",
-        //   className: "loginLink",
-        // },
+        {
+          to: "https://www.scalekit.com/?intent=earlyaccess&utm_source=docs",
+          label: "Get Early Access",
+          position: "right",
+          className: "loginLink",
+        },
       ],
     },
     imageZoom: {
@@ -128,9 +128,9 @@ const config: Config = {
       theme: prismThemes.github,
       additionalLanguages: ["bash"],
     },
-    footer: {
-      copyright: `Copyright © ${new Date().getFullYear()} Scalekit Inc.`,
-    },
+    // footer: {
+    //   copyright: `Copyright © ${new Date().getFullYear()} Scalekit Inc.`,
+    // },
   } satisfies Preset.ThemeConfig,
 };
 

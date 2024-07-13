@@ -3,7 +3,6 @@
  * bundles Infima by default. Infima is a CSS framework designed to
  * work well for content-centric websites.
  */
-
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme="dark"] {
     --ifm-color-primary: #fff;
@@ -88,7 +87,9 @@
     --ifm-paragraph-margin-bottom: 10px;
     --ifm-table-border-color: #e8e8e8;
 }
-
+.homepage {
+    margin: 0 10%;
+}
 .theme-code-block {
     display: grid;
 }
@@ -275,10 +276,10 @@ figure img {
 .theme-doc-sidebar-item-category-level-1 {
     margin-bottom: 24px;
 }
-
+/*
 .theme-doc-sidebar-item-link-level-1 {
     margin-bottom: 4px;
-}
+} */
 
 /*custom: selector for categories within categories*/
 .theme-doc-sidebar-item-category-level-2 .menu__list-item-collapsible {
@@ -800,7 +801,17 @@ footer {
     background-color: transparent; /* Adjust background color as needed */
     padding-top: 3rem; /* Add padding for spacing */
 }
-
+.footerLink {
+    margin: 1rem 0;
+    line-height: 1em;
+    vertical-align: middle;
+    height: 1em;
+}
+.footerLink svg {
+    height: 1em;
+    vertical-align: bottom;
+    margin-right: 8px;
+}
 /* Add space between ProductList component and the footer */
 .ProductList {
     margin-bottom: 20px; /* Adjust margin as needed for spacing */
@@ -901,37 +912,20 @@ footer {
 
 .docsRating {
     display: inline-block;
-    padding: 16px 30px 16px 40px;
-    min-height: 66px;
+    /* padding: 16px 30px 16px 40px; */
+    /* min-height: 66px; */
     margin-top: 42px;
-    margin-left: -32px;
-    background-color: rgba(100, 215, 255, 0.3);
+    /* margin-left: -32px; */
+    /* background-color: rgba(100, 215, 255, 0.3); */
     text-align: center;
-    color: #057594;
-    line-height: 32px;
+    /* color: #057594; */
+    /* line-height: 32px; */
     font-weight: 500;
     border-radius: 0 var(--ifm-global-radius) var(--ifm-global-radius) 0;
 }
 
 .docsRating svg {
-    height: 1.5em;
-    width: 1.5em;
     margin: 0 0 0 6px;
-}
-.docsRating svg:hover,
-.docsRating svg:focus {
-    cursor: pointer;
-    fill: var(--ifm-color-primary);
-}
-.docsRating .i_thumbsup {
-    fill: #56a211;
-    transform: translateY(0.25em);
-    margin-left: 12px;
-}
-
-.docsRating .i_thumbsdown {
-    fill: #e9430f;
-    transform: scale(-1, -1) translateY(-0.25em);
 }
 
 /*API Reference*/
@@ -1232,4 +1226,27 @@ article:has(.custom_container) {
 }
 ::marker {
     display: none;
+}
+.docsRating .btn-outline {
+    margin: 0 8px;
+    color: var(--ifm-color-primary);
+}
+
+.btn-outline {
+    padding-right: 12px !important;
+    padding-left: 12px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    border: 1px solid #cecece;
+    border-radius: 5px;
+    font-family: Inter, sans-serif;
+    cursor: pointer;
+    align-items: center;
+}
+.btn-outline svg {
+    height: 12px;
+}
+.btn-outline:hover {
+    background-color: #f9f9f9;
+    text-decoration: none;
 }

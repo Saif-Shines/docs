@@ -15,6 +15,7 @@ import Link from "@docusaurus/Link";
 import Markdown from "react-markdown";
 import { SimpleCard } from "@site/src/components/ProductList/ProductList";
 import { FancyLink } from "@site/src/components/Card/CardWithArrow";
+import QuickLinkStack from "@site/src/components/QuickLinkStack";
 export default {
   // Re-use the default mapping
   ...MDXComponents,
@@ -37,4 +38,5 @@ export default {
   Markdown,
   SimpleCard,
   FancyLink,
+  QuickLinkStack,
 };

@@ -1,16 +1,15 @@
 .productList {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 16px;
 }
 
 .productItem {
     display: flex;
-    align-items: center;
     gap: 16px;
-    padding: 16px;
+    padding: 1.5rem;
     border: 1px solid var(--ifm-color-emphasis-200);
-    border-radius: 8px;
+    border-radius: 0px;
     background-color: var(--background-panels);
     text-decoration: none; /* Ensure links have no underline */
     color: inherit; /* Ensure link color is inherited */
@@ -18,15 +17,16 @@
 
 .productItem:hover {
     text-decoration: none;
-    color: var(--text-content);
     box-shadow:
-        0 0 0 1px rgba(79, 94, 255, 0.1),
-        0 7px 14px 0 rgba(79, 94, 255, 0.2),
-        0 3px 6px 0 rgba(79, 94, 255, 0.1);
-    color: var(--text-link);
+        rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
+        rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
     transition: color 200ms;
-    transform: translateX(1px) scale(1);
-    transition: transform 200ms;
+    color: var(--text-content);
+}
+
+.productItem:hover h3 {
+    color: var(--ifm-link-color);
+    text-decoration: underline;
 }
 
 .icon {
@@ -41,9 +41,7 @@
 
 .title {
     font-size: 1rem; /* Updated to match cardwitharrow */
-    color: var(--ifm-link-color);
-    text-decoration: none;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
 }
 
 .title:hover {
@@ -52,6 +50,6 @@
 
 .description {
     margin-bottom: 0;
-    font-size: 1rem; /* Updated to match cardwitharrow */
+    font-size: 0.9rem; /* Updated to match cardwitharrow */
     color: inherit;
 }

@@ -15,20 +15,69 @@ import ProductList from "@site/src/components/ProductList/ProductList";
 import { IoHelpBuoyOutline, IoHelpCircleOutline } from "react-icons/io5";
 
 <div className="homepage">
-<div class="row">
-<div class="col col-2">
+<div className="row section">
+<div className="col col-2">
 <Hero title="Scalekit Developer Docs" subtitle="Implement Single Sign-on in just a few hours with our quick start guides, SDKs and code samples!">
-<a class="button button--primary button--outline" href="/sso/single-sign-on/quickstart">Get Started Now -> </a>
+<Link className="button button--primary button--outline" href="/sso/single-sign-on/quickstart">Get Started Now -> </Link>
 
 </Hero>
 </div>
-<div class="col col-2">
+<div className="col col-2">
 ![Welcome to Scalekit Docs](/img/developer.png)
 </div>
 </div>
 
+<div className="row section padding-vert--lg">
+<div className="col col-2">
+# Featured Content
 
-<hr />
+Implement specific use cases by following our quick start guides in your favourite tech stack.
+</div>
+<div className="col col-2">
+<ProductList
+items={[{
+  title: "Implement Enterprise SSO",
+  description: "Implement Enterprise Single Sign-on to support authentication via SAML or OIDC with your customer's Identity Provider",
+  href: "/sso/single-sign-on/quickstart",
+},{
+  title: "Implement Social Login",
+  description: "Make it easy for your customers to securely login to your application with social providers like Google, Microsoft, Github etc",
+  href: "https://www.scalekit.com/blog",
+},{
+  title: "Integrate Admin Portal",
+  description: "Allow your customers to configure and manage their own Single Sign-on configuration using our no-code tools",
+  href: "/sso/single-sign-on/quickstart-admin-portal",
+},{
+  title: "Launch Checklist",
+  description: "Check off these recommended steps before launching your app in Production",
+  href: "/sso/single-sign-on/launch-checklist",
+}]}>
+
+</ProductList>
+</div>
+</div>
+
+<div className="row section padding-vert--lg">
+<div className="col col-2">
+# Developer Resources
+Get up and running with SDKs, API References, and integration tools.
+</div>
+<div className="col col-2">
+<ProductList
+items={[{
+  title: "SDKs",
+  description: "Offical Scalekit client libraries in Node.JS, Python, Go and Java",
+  href: "/sdks",
+},{
+  title: "API Reference",
+  description: "Go through our well documented REST APIs and code samples in Node.JS, Python, Go and Java",
+  href: "/apis",
+}]}>
+
+</ProductList>
+</div>
+</div>
+
 <div className="footerLink"><IoHelpBuoyOutline /> Need help? <a href="mailto:support@scalekit.com">Contact Support</a></div>
 <div className="footerLink"><IoHelpCircleOutline /> Questions? <a href="mailto:hi@scalekit.com">Contact Us</a></div>
 

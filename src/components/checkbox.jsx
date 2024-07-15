@@ -22,7 +22,7 @@ const lsUtils = {
 function Checkbox({ shouldPersist = true, id, className = "persist_chkbox" }) {
   if (shouldPersist && !id) {
     throw new Error(
-      "Please provide a unique element identifier as shouldPersist is enabled"
+      "Please provide a unique element identifier as shouldPersist is enabled",
     );
   }
 
@@ -41,7 +41,7 @@ function Checkbox({ shouldPersist = true, id, className = "persist_chkbox" }) {
 
 export default function LabeledCheckbox({ children, ...props }) {
   return (
-    <label for={props.id}>
+    <label htmlFor={props.id}>
       <Checkbox {...props} />
       {children}
     </label>

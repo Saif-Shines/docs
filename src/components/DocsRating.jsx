@@ -1,10 +1,3 @@
-/**
- * Copyright (c) Meta Platforms, Inc. and affiliates.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
-
 import React, { useRef, useState } from "react";
 import { FaRegThumbsUp, FaRegThumbsDown } from "react-icons/fa";
 import { IoHelpBuoyOutline, IoHelpCircleOutline } from "react-icons/io5";
@@ -38,10 +31,16 @@ const DocsRating = ({ label }) => {
       ) : (
         <>
           Is this page helpful?
-          <a className="btn-outline" onClick={() => giveFeedback(1)}>
+          <a
+            className="button button--secondary button--outline btn-outline"
+            onClick={() => giveFeedback(1)}
+          >
             <FaRegThumbsUp /> Yes
           </a>
-          <a className="btn-outline" onClick={() => giveFeedback(0)}>
+          <a
+            className="button button--secondary button--outline btn-outline"
+            onClick={() => giveFeedback(0)}
+          >
             <FaRegThumbsDown /> No
           </a>
           <TextFeedbackComponent

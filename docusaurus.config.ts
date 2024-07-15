@@ -30,7 +30,7 @@ const config: Config = {
         },
         blog: false,
         theme: {
-          customCss: ["./src/css/custom.css"],
+          customCss: ["./src/css/scalar_theme.css", "./src/css/custom.css"],
         },
       } satisfies Preset.Options,
     ],

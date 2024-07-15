@@ -24,6 +24,11 @@ const sidebars: SidebarsConfig = {
       id: "sso/single-sign-on/launch-checklist",
     },
     {
+      type: "html",
+      value: "<div />", // The link label
+      defaultStyle: true,
+    },
+    {
       type: "category",
       label: "Implementation Guides",
       collapsible: false,

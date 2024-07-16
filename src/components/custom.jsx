@@ -1,7 +1,7 @@
 import React from "react";
 
-export function SimpleCode({ children }) {
-  return <code className="simple_code">{children}</code>;
+export function SimpleCode({ children, className = "" }) {
+  return <code className={className + " simple_code"}>{children}</code>;
 }
 
 export function CardTileWithImage({ url, imageSrc, title, description }) {

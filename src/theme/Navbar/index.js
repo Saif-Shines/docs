@@ -7,7 +7,7 @@ export default function NavbarWrapper(props) {
       <Navbar {...props} />
       {/*<div class="secondary_nav_container">
         <div>
-          <a href="/sso/single-sign-on/quickstart">Single Sign-on</a>
+          <a href="/sso/quickstart">Single Sign-on</a>
           <a href="/dir-sync/overview/">Directory Sync</a>
           <a href="/adminportal/overview/">Admin Portal</a>
           <a href="/fba/overview/">Authentication</a>

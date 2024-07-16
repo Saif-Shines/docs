@@ -52,7 +52,7 @@ const config: Config = {
       },
       items: [
         {
-          to: "/sso/single-sign-on/quickstart",
+          to: "/sso/quickstart",
           label: "Single Sign-on",
           position: "left",
         },
@@ -92,7 +92,7 @@ const config: Config = {
         },
         {
           to: "https://www.scalekit.com/?intent=earlyaccess&utm_source=docs",
-          label: "Get Early Access",
+          label: "Get Early Access ->",
           position: "right",
           className: "loginLink",
         },

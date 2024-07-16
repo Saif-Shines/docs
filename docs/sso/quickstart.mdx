@@ -4,16 +4,15 @@ description: Step-by-step guide to implement Single Sign-on in your application 
 ---
 
 import InstallSDK from "@site/docs/sso/templates/_install-sdk.md";
-import Card from "@site/src/components/Card/Card";
-import CardList from "@site/src/components/CardList/CardList";
 
-# Single Sign On Quickstart
+# Enterprise Single Sign On - A Quickstart Guide
+<Subtitle>Integrate with dozens of Identity Providers via SAML or OIDC</Subtitle>
 
-This quickstart guide will show you how to implement Single Sign-on (SSO). Scalekit is an authentication platform that connects your application to any of your customers identity providers and enabling your users to login to your application via SAML or OpenID Connect protocols.
+Scalekit is an enterprise authentication platform that connects your application to any of your customers identity providers and enabling your users to login to your application via SAML or OpenID Connect protocols. This quickstart guide will show you how to implement Single Sign-on (SSO) using via Scalekit.
 
 <figure>![How Scalekit works](@site/docs/sso/assets/single-sign-on/quickstart/how-scalekit-connects.png)<figcaption>Scalekit in a nutshell</figcaption></figure>
 
-## Environment Setup
+## 1. Environment Setup
 
 Before diving in, make sure you have:
 
@@ -59,7 +58,7 @@ Now you're ready to start integrating SSO into your app! Next, we'll cover how t
 
 If you do not have an app ready to implement, see this tutorial on [how to implement SSO it from scratch](/sso/guides/key-concepts/sso-overview).
 
-## Authorize the Users
+## 2. Authorize the Users
 
 To start Single Sign-On (SSO), your app must redirect users to the Scalekit Authorization URL.
 
@@ -176,7 +175,7 @@ authorization_url = scalekit_client.get_authorization_url(
 
 Finally, handle the callback at your <SimpleCode>redirect_uri</SimpleCode> to complete the Authentication. Understand user authorization procedure through a NextJS example for [adding SSO to the Login Page](/sso/guides/setup-sso/build-login-page)
 
-## Fetch User Details
+## 3. Fetch User Details
 
 After a successful SSO, Scalekit redirects the user to your <SimpleCode>redirect_uri</SimpleCode> with a unique <SimpleCode>code</SimpleCode> in the browser. Exchange the <SimpleCode>code</SimpleCode> for user profile details (on the serverside).
 

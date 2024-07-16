@@ -13,44 +13,50 @@ import ActionCard from "@site/src/components/ActionCard/ActionCard";
 import Hero from "@site/src/components/Hero/Hero";
 import ProductList from "@site/src/components/ProductList/ProductList";
 import { IoHelpBuoyOutline, IoHelpCircleOutline } from "react-icons/io5";
+import { VscDebugStart } from "react-icons/vsc";
+import { FaJava } from "react-icons/fa6";
+import { FaPython } from "react-icons/fa6";
+import { FaGolang } from "react-icons/fa6";
+import { FaNodeJs } from "react-icons/fa6";
+
+
 
 <div className="homepage">
 <div className="row section">
-<div className="col col-2">
-<Hero title="Scalekit Developer Docs" subtitle="Implement Single Sign-on in just a few hours with our quick start guides, SDKs and code samples!">
-<Link className="button button--primary button--outline" href="/sso/single-sign-on/quickstart">Get Started Now -> </Link>
-
+<div className="col col--6 padding-vert--lg">
+<Hero title="Scalekit Developer Docs" subtitle="Learn how to implement enterprise authentication capabilities through our quick start guides, SDKs and code samples!">
+<Link className="button button--primary" href="/sso/quickstart">Get Started Now -> </Link>
 </Hero>
 </div>
-<div className="col col-2">
+<div className="col col--6">
 ![Welcome to Scalekit Docs](/img/developer.png)
 </div>
 </div>
 
 <div className="row section padding-vert--lg">
-<div className="col col-2">
-# Featured Content
+<div className="col col--5">
+# Featured Content <span className="badge badge--success">GUIDES</span>
 
 Implement specific use cases by following our quick start guides in your favourite tech stack.
 </div>
-<div className="col col-2">
+<div className="col col--7">
 <ProductList
 items={[{
-  title: "Implement Enterprise SSO",
+  title: "Login with SSO",
   description: "Implement Enterprise Single Sign-on to support authentication via SAML or OIDC with your customer's Identity Provider",
-  href: "/sso/single-sign-on/quickstart",
+  href: "/sso/quickstart",
 },{
-  title: "Implement Social Login",
+  title: "Login with Social",
   description: "Make it easy for your customers to securely login to your application with social providers like Google, Microsoft, Github etc",
-  href: "https://www.scalekit.com/blog",
+  href: "/sso/social-login",
 },{
   title: "Integrate Admin Portal",
-  description: "Allow your customers to configure and manage their own Single Sign-on configuration using our no-code tools",
-  href: "/sso/single-sign-on/quickstart-admin-portal",
+  description: "Allow your customers to configure and manage their own Single Sign-on configuration using our no-code solution",
+  href: "/sso/quickstart-admin-portal",
 },{
   title: "Launch Checklist",
   description: "Check off these recommended steps before launching your app in Production",
-  href: "/sso/single-sign-on/launch-checklist",
+  href: "/sso/launch-checklist",
 }]}>
 
 </ProductList>
@@ -58,11 +64,11 @@ items={[{
 </div>
 
 <div className="row section padding-vert--lg">
-<div className="col col-2">
-# Developer Resources
+<div className="col col--5">
+# Developer Resources <span className="badge badge--success">APIs</span>
 Get up and running with SDKs, API References, and integration tools.
 </div>
-<div className="col col-2">
+<div className="col col--7">
 <ProductList
 items={[{
   title: "SDKs",

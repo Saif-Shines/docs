@@ -8,7 +8,7 @@ pagination_next: null
 
 After initiating the Single Sign-On (SSO) process, user details are transmitted to your B2B application once they have authenticated with their Identity Provider (IdP). This guide is designed to assist in managing the authentication flow, particularly in terms of exchanging the "code" for necessary user profile details to finalize the user's login to the application.
 
-Maximise your understanding of this guide by using it in conjunction with the [scalekit-nextjs-example](https://github.com/scalekit-inc/scalekit-nextjs-example) repository and [Build Login Page](sso/guides/setup-sso/build-login-page) guide.
+Maximise your understanding of this guide by using it in conjunction with the [scalekit-nextjs-example](https://github.com/scalekit-inc/scalekit-nextjs-example) repository and [Build Login Page](/sso/guides/setup-sso/build-login-page) guide.
 
 ## Redirection to the App
 
@@ -16,7 +16,7 @@ The authorization URL carries a <SimpleCode>redirect_uri</SimpleCode> parameter 
 
 Handle the <SimpleCode>/auth/callback</SimpleCode> route in your app. This route receives user details in the form of a token after successful authentication. If the authentication is unsuccessful, your app will receive an error response, which needs to be addressed appropriately.
 
-For information on valid URIs, consult the [Redirect URI](sso/guides/key-concepts/redirect-uri) section.
+For information on valid URIs, consult the [Redirect URI](/sso/guides/key-concepts/redirect-uri) section.
 
 ## **Handling Callback Route**
 

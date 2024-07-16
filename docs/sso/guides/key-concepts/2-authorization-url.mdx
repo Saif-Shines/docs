@@ -28,13 +28,14 @@ https://b2b-app.scalekit.dev/oauth/authorize?
 | `organization_id` | Required\*  | Identifier for the organization initiating SSO                  |
 | `connection_id`   | Required\*  | Identifier for the specific SSO connection                      |
 | `domain`          | Required\*  | Domain part of the email address configured for an organization |
+| `provider`          | Required\*  | Unique provider name for Social Login. <br />Currently, we support the following providers: `google`, `microsoft`, `github`, `gitlab`, `linkedin`, `salesforce`                                            |
 | `response_type`   | Required    | Must be set to `code`                                           |
 | `redirect_uri`    | Required    | URL where the response is sent, must match an authorized value  |
 | `scope`           | Required    | Must be set to `openid profile`                                 |
 | `state`           | Optional    | Opaque string for request-response correlation                  |
 | `login_hint`      | Optional    | Email address of the user for authentication hint               |
 
-\* One of <SimpleCode>organization_id</SimpleCode>, <SimpleCode>connection_id</SimpleCode>, or <SimpleCode>domain</SimpleCode> must be provided.
+\* One of <SimpleCode>organization_id</SimpleCode>, <SimpleCode>connection_id</SimpleCode>, <SimpleCode>domain</SimpleCode>, or <SimpleCode>provider</SimpleCode> must be provided.
 
 ## Usage Notes
 

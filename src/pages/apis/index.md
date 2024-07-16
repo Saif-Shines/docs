@@ -47,7 +47,7 @@ Read below to understand more about how to authenticate the API calls and how to
 <div className="col col--6">
 **Just getting Started?**
 
-Refer to our <a href="/sso/single-sign-on/quickstart" target="_blank">Quick Start Guide</a>
+Refer to our <a href="/sso/quickstart" target="_blank">Quick Start Guide</a>
 <br />
 <CodeWithHeader title="Client Libraries">
 <InstallSDK />

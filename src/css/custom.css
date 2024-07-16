@@ -565,13 +565,12 @@ ul.table-of-contents.table-of-contents__left-border:before {
 .hero--primary {
     --ifm-hero-background-color: #00bcd4;
 }
-
+.navbar {
+    padding: 0 var(--ifm-navbar-padding-horizontal);
+}
 .navbar__logo {
     cursor: pointer;
-}
-.navbar__logo img {
-    height: 44px;
-    margin-top: -8px;
+    height: auto;
 }
 .alert a {
     color: inherit;

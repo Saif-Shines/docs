@@ -23,17 +23,17 @@ https://b2b-app.scalekit.dev/oauth/authorize?
 
 | Parameter         | Requirement | Description                                                     |
 | ----------------- | ----------- | --------------------------------------------------------------- |
-| `client_id`       | Required    | Unique identifier obtained from the API Credentials page        |
-| `nonce`           | Optional    | Random value for replay protection                              |
-| `organization_id` | Required\*  | Identifier for the organization initiating SSO                  |
-| `connection_id`   | Required\*  | Identifier for the specific SSO connection                      |
-| `domain`          | Required\*  | Domain part of the email address configured for an organization |
-| `provider`          | Required\*  | Unique provider name for Social Login. <br />Currently, we support the following providers: `google`, `microsoft`, `github`, `gitlab`, `linkedin`, `salesforce`                                            |
-| `response_type`   | Required    | Must be set to `code`                                           |
-| `redirect_uri`    | Required    | URL where the response is sent, must match an authorized value  |
-| `scope`           | Required    | Must be set to `openid profile`                                 |
-| `state`           | Optional    | Opaque string for request-response correlation                  |
-| `login_hint`      | Optional    | Email address of the user for authentication hint               |
+| <SimpleCode className="text--semibold">client_id</SimpleCode>       | Required    | Unique identifier obtained from the API Credentials page        |
+| <SimpleCode className="text--semibold">nonce</SimpleCode>           | Optional    | Random value for replay protection                              |
+| <SimpleCode className="text--semibold">organization_id</SimpleCode> | Required\*  | Identifier for the organization initiating SSO                  |
+| <SimpleCode className="text--semibold">connection_id</SimpleCode>   | Required\*  | Identifier for the specific SSO connection                      |
+| <SimpleCode className="text--semibold">domain</SimpleCode>          | Required\*  | Domain part of the email address configured for an organization |
+| <SimpleCode className="text--semibold">provider</SimpleCode>          | Required\*  | Unique provider name for Social Login. <br />Currently, we support the following providers: `google`, `microsoft`, `github`, `gitlab`, `linkedin`, `salesforce`                                            |
+| <SimpleCode className="text--semibold">response_type</SimpleCode>   | Required    | Must be set to `code`                                           |
+| <SimpleCode className="text--semibold">redirect_uri</SimpleCode>    | Required    | URL where the response is sent, must match an authorized value  |
+| <SimpleCode className="text--semibold">scope</SimpleCode>           | Required    | Must be set to `openid profile`                                 |
+| <SimpleCode className="text--semibold">state</SimpleCode>           | Optional    | Opaque string for request-response correlation                  |
+| <SimpleCode className="text--semibold">login_hint</SimpleCode>      | Optional    | Email address of the user for authentication hint               |
 
 \* One of <SimpleCode>organization_id</SimpleCode>, <SimpleCode>connection_id</SimpleCode>, <SimpleCode>domain</SimpleCode>, or <SimpleCode>provider</SimpleCode> must be provided.
 

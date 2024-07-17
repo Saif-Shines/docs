@@ -120,7 +120,7 @@ const sidebars: SidebarsConfig = {
     {
       type: "doc",
       label: "SSO Basics",
-      id: "sso/guides/key-concepts/sso-overview",
+      id: "sso/guides/key-concepts/overview",
     },
     {
       type: "doc",
@@ -263,7 +263,7 @@ const sidebars: SidebarsConfig = {
     //     {
     //       type: "doc",
     //       label: "SSO Basics",
-    //       id: "sso/guides/key-concepts/sso-overview",
+    //       id: "sso/guides/key-concepts/overview",
     //     },
     //     {
     //       type: "doc",

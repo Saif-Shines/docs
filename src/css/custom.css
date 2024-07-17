@@ -808,15 +808,23 @@ footer {
 }
 .footerLink {
     margin: 1rem 0;
-    line-height: 1em;
     vertical-align: middle;
-    height: 1em;
-    font-size: 0.9rem;
 }
-.footerLink svg {
-    height: 1em;
-    vertical-align: bottom;
-    margin-right: 8px;
+svg {
+    vertical-align: text-bottom;
+    margin-right: 4px;
+}
+.large_font {
+    font-size: 1.5rem;
+}
+.language svg {
+    height: 2em;
+    width: 2em;
+    vertical-align: middle;
+}
+
+.language-row {
+    width: 75%;
 }
 /* Add space between ProductList component and the footer */
 .ProductList {

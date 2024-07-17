@@ -92,7 +92,7 @@ const config: Config = {
         },
         {
           to: "https://www.scalekit.com/?intent=earlyaccess&utm_source=docs",
-          label: "Get Early Access ->",
+          html: "Get Early Access &rarr;",
           position: "right",
           className: "loginLink",
         },

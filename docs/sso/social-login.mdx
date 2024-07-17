@@ -3,7 +3,7 @@ import InstallSDK from "@site/docs/sso/templates/_install-sdk.md";
 # Implement Social Login
 <Subtitle>Enable secure login to your application with social providers like Google, Microsoft, Github etc</Subtitle>
 
-Scalekit is an enterprise authentication platform that connects your application to any of your customers identity providers and enabling your users to login to your application via SAML or OpenID Connect protocols. This quickstart guide will show you how to implement Single Sign-on (SSO) using via Scalekit.
+Scalekit is an authentication platform that lets your users login to your application with any of the social Identity Providers like Google, Microsoft, Salesforce etc. This quickstart guide will show you how to implement Social Login functionality to your web application with just a few lines of code.
 
 <figure>![How Scalekit works](@site/docs/sso/assets/single-sign-on/quickstart/scalekit_social.png)<figcaption>Login with Social Providers via Scalekit</figcaption></figure>
 
@@ -38,7 +38,7 @@ Secure your Scalekit API communication by setting up environment variables. You'
 Never hardcode secrets in your app. Use environment variables instead. Here's how to set them in a `.env` file:
 
 ```jsx title=".env"
-SCALEKIT_ENVIRONMENT_URL = "https://b2b-app-dev.scalekit.com";
+SCALEKIT_ENVIRONMENT_URL = "<COPY_ENV_URL_SCALEKIT_DASHBOARD>";
 SCALEKIT_CLIENT_ID = "<COPY_CLIENT_ID_SCALEKIT_DASHBOARD>";
 SCALEKIT_CLIENT_SECRET = "<COPY_SECRET_SCALEKIT_DASHBOARD>";
 ```

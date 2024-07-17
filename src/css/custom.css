@@ -1175,6 +1175,9 @@ svg {
     padding-top: var(--ifm-navbar-height);
     width: var(--doc-sidebar-width);
 }
+.col:has(.custom_container) {
+    padding: 0;
+}
 .custom_container aside {
     display: block;
     width: var(--doc-sidebar-width);

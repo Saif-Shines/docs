@@ -814,8 +814,12 @@ svg {
     vertical-align: text-bottom;
     margin-right: 4px;
 }
-.large_font {
+.font_large {
     font-size: 1.5rem;
+}
+
+.font-1 {
+    font-size: 1rem;
 }
 .language svg {
     height: 2em;
@@ -925,14 +929,7 @@ svg {
 
 .docsRating {
     display: inline-block;
-    /* padding: 16px 30px 16px 40px; */
-    /* min-height: 66px; */
-    margin-top: 42px;
-    /* margin-left: -32px; */
-    /* background-color: rgba(100, 215, 255, 0.3); */
     text-align: center;
-    /* color: #057594; */
-    /* line-height: 32px; */
     font-weight: 500;
     border-radius: 0 var(--ifm-global-radius) var(--ifm-global-radius) 0;
 }

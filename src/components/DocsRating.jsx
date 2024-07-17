@@ -82,8 +82,8 @@ const DocFeedbackComponent = () => {
       options={options}
     >
       <div className="feedbackFooter">
-        {<DocsRating />}
         <hr />
+        {<DocsRating />}
         <div className="footerLink">
           <IoHelpBuoyOutline />
           Need help? <a href="mailto:support@scalekit.com">Contact Support</a>

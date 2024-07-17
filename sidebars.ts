@@ -77,7 +77,7 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: "doc",
-      label: "Configure Advanced SAML Settings",
+      label: "Configure SAML Settings",
       id: "sso/guides/setup-sso/support-advanced-saml-settings",
     },
     {

@@ -161,7 +161,7 @@ figure img {
 
 .menu.thin-scrollbar,
 .sidebar-group {
-    padding: 0.5rem;
+    padding: 0.5rem 0;
 }
 
 .menu__list-item {
@@ -448,13 +448,7 @@ p {
     color: var(--ifm-color-primary);
     margin: 0 0.5rem;
     border-radius: 4px;
-
-    /* custom: Match the boldness of left navigation sidebar items*/
-    font-weight: 600;
-    font-size: 0.875rem;
-
-    /* font-weight: 400; */
-    /* font-size: 14px; */
+    font-size: 1rem;
 }
 
 .navbar__link--active {

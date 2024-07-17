@@ -14,7 +14,7 @@ const config: Config = {
   deploymentBranch: "gh-pages",
   onBrokenLinks: "log",
   onBrokenMarkdownLinks: "warn",
-  clientModules: ["./iframedetector.js"],
+  clientModules: ["./scalekit.js"],
   i18n: { defaultLocale: "en", locales: ["en"] },
   plugins: ["plugin-image-zoom", "./plugins/learn-filters"],
   presets: [
@@ -55,6 +55,7 @@ const config: Config = {
           to: "/sso/quickstart",
           label: "Single Sign-on",
           position: "left",
+          className: "sso",
         },
         {
           to: "/apis",

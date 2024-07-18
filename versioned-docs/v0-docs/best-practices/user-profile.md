@@ -70,5 +70,5 @@ Below is the sample normalized user profile information in json.
 |<SimpleCode>connection_id</SimpleCode>|string|Unique ID of the connection for which this identity data is fetched from|
 |<SimpleCode>connection_type</SimpleCode>|string|type of the connection: SAML or OIDC|
 |<SimpleCode>provider_name</SimpleCode>|string|name of the connection provider. Example: Okta, Google, Auth0|
-|<SimpleCode>social</SimpleCode>|boolean|Is the connection a social provider (like Google, Microsoft, Github etc) or an enterprise connection.|
+|<SimpleCode>social</SimpleCode>|boolean|Is the connection a social provider (like Google, Microsoft, GitHub etc) or an enterprise connection.|
 |<SimpleCode>provider_raw_attributes</SimpleCode>|object|key-value map of all the raw attributes received from the connection provider as-is|

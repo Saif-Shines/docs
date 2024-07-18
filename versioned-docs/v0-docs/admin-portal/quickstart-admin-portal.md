@@ -7,13 +7,13 @@ import InstallSDK from './../templates/install-sdk.md';
 
 ## Overview
 
-Admin Portal is a self-service interface that empowers your customers' IT admins to configure SSO on their own. Designed to streamline the SSO setup process, it reduces the demand on your engineering resources and provides comprehensive IdP-specific documentation. Fully hosted and managed by Scalekit, the Admin Portal simplifies the SSO config experience, ensuring a fast and secure integration with only a few lines of code.
+Admin Portal is a self-service interface that empowers your customers' IT admins to configure SSO by themselves. Designed to streamline the SSO setup process, it reduces the demand on your engineering resources and provides comprehensive IdP-specific documentation. Fully hosted and managed by Scalekit, the Admin Portal simplifies the SSO config experience, ensuring a fast and secure integration with only a few lines of code.
 
 Depending on your architecture and UX preferences, you can choose one of the two methods to integrate the Admin Portal into your application:
 
 1. Integration via API
 2. Integration via Shareable Link
-<!-- 
+<!--
 <figure>![Two ways of integrating Admin Portal](./Integrate%20with%20Scalekit.png)
 <figcaption>Two ways of integrating Admin Portal</figcaption></figure> -->
 

@@ -11,14 +11,15 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: "doc",
+      label: "Learn SSO Basics",
+      id: "sso/guides/key-concepts/overview",
+    },
+    {
+      type: "doc",
       label: "SSO - Quickstart", // The link label
       id: "sso/quickstart", // The internal path
     },
-    // {
-    //   type: "doc",
-    //   label: "Testing SSO",
-    //   id: "sso/guides/test-your-integration/using-okta",
-    // },
+
     {
       type: "doc",
       label: "Admin Portal",
@@ -26,8 +27,24 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: "doc",
+      label: "Test SSO with Okta",
+      id: "sso/guides/test-your-integration/using-okta",
+    },
+    {
+      type: "doc",
       label: "Launch Checklist",
       id: "sso/launch-checklist",
+    },
+    {
+      type: "html",
+      value: "<div />", // The link label
+      defaultStyle: true,
+    },
+    {
+      type: "html",
+      value:
+        "<span class='text--uppercase text--light sidenav-category-heading'>Login with Social</span>",
+      defaultStyle: true,
     },
     {
       type: "doc",
@@ -101,11 +118,11 @@ const sidebars: SidebarsConfig = {
       label: "Integrate with Firebase",
       id: "sso/guides/integrate-with-your-auth-system/firebase",
     },
-    {
-      type: "doc",
-      label: "Test your Integration using Okta",
-      id: "sso/guides/test-your-integration/using-okta",
-    },
+    // {
+    //   type: "doc",
+    //   label: "Test your Integration using Okta",
+    //   id: "sso/guides/test-your-integration/using-okta",
+    // },
     {
       type: "html",
       value: "<div />", // The link label
@@ -117,11 +134,7 @@ const sidebars: SidebarsConfig = {
         "<span class='text--uppercase text--light sidenav-category-heading'>Learning Guides</span>",
       defaultStyle: true,
     },
-    {
-      type: "doc",
-      label: "SSO Basics",
-      id: "sso/guides/key-concepts/overview",
-    },
+
     {
       type: "doc",
       label: "Authorization URL",

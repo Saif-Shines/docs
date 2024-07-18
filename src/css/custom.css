@@ -301,6 +301,7 @@ figure img {
     /* background: none; */
     border-left: 2px solid;
     border-radius: 0;
+    color: blue;
 }
 
 .menu__caret:before {
@@ -1271,8 +1272,8 @@ h1 .badge {
     vertical-align: middle;
 }
 .sidenav-category-heading {
-    font-weight: 500;
-    color: var(--ifm-color-emphasis-600);
+    font-weight: 600;
+    color: var(--ifm-color-emphasis-800);
     font-size: small;
     font-family: var(--ifm-heading-font-family);
     letter-spacing: 0.5px;

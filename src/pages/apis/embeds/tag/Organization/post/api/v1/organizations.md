@@ -1,6 +1,6 @@
 
 <CodeWithHeader method="post" endpoint="/api/v1/organizations">
-<Tabs groupId="tech-stack" queryString>
+<Tabs groupId="tech-stack" querystring>
 <TabItem value="curl" label="cURL">
 
 ```bash showLineNumbers
@@ -21,7 +21,7 @@ curl --location 'https://$ENV_URL/api/v1/organizations' \
 
 ```js showLineNumbers
 // scalekit client takes care of authentication behind the scenes.
-const sc = new Scalekit(
+const sc = new ScalekitClient(
   SCALEKIT_ENVIRONMENT_URL,
   SCALEKIT_CLIENT_ID,
   SCALEKIT_CLIENT_SECRET
@@ -50,6 +50,26 @@ organization = sc.organization.create_organization(
   options=options
 )
 ```
+
+</TabItem>
+<TabItem value="golang" label="Go">
+  
+  ```go showLineNumbers
+  // scalekit client takes care of authentication behind the scenes.
+  sc := scalekit.NewScalekitClient(
+    SCALEKIT_ENVIRONMENT_URL,
+    SCALEKIT_CLIENT_ID,
+    SCALEKIT_CLIENT_SECRET
+  )
+
+  organization, err := sc.Organization.CreateOrganization(
+    ctx,
+    name,
+    scalekit.CreateOrganizationOptions{
+      ExternalID: "externalId",
+    },
+  )
+  ```
 
 </TabItem>
 </Tabs>

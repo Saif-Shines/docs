@@ -114,9 +114,37 @@ authorization_url = scalekit_client.get_authorization_url(
 ```
 
 </TabItem>
+<TabItem value="golang" label="Go">
+
+```go showLineNumbers
+
+import (
+  "github.com/scalekit/scalekit-sdk-go"
+)
+
+func main() {
+  sc := scalekit.NewScalekitClient(
+    SCALEKIT_ENVIRONMENT_URL,
+    SCALEKIT_CLIENT_ID,
+    SCALEKIT_CLIENT_SECRET
+  )
+
+  options := scalekit.AuthorizationUrlOptions{}
+  // Pass the Social Login Provider details while constructing the authorization URL.
+  options.Provider = "microsoft"
+
+  authorizationURL := sc.GetAuthorizationUrl(
+    redirectUrl,
+    options,
+  )
+  // next step is to redirect the user to this authorizationURL
+}
+```
+
+</TabItem>
 </Tabs>
 
-Finally, handle the callback at your <SimpleCode>redirect_uri</SimpleCode> to complete the Authentication. Understand user authorization procedure through a NextJS example for [adding SSO to the Login Page](/sso/guides/setup-sso/build-login-page)
+Finally, handle the callback at your <SimpleCode>redirect_uri</SimpleCode> to complete the Authentication.
 
 ## 3. Fetch User Details
 
@@ -149,6 +177,70 @@ const res = await scalekit.authenticateWithCode({
 const userEmail = res.user.email;
 
 // Next step: create a session for this user and allow access
+```
+
+</TabItem>
+<TabItem value="py" label="Python">
+
+```python showLineNumbers
+from scalekit import ScalekitClient, AuthorizationUrlOptions, CodeAuthenticationOptions
+
+scalekit_client = ScalekitClient(<SCALEKIT_ENVIRONMENT_URL>, <SCALEKIT_CLIENT_ID>, <SCALEKIT_CLIENT_SECRET>)
+
+# Handle the oauth redirect_url
+# fetch code and error_description from request parameters.
+code = request.args.get('code')
+error = request.args.get('error')
+error_description = request.args.get('error_description')
+
+if error:
+    raise Exception(error_description)
+
+result = scalekit_client.authenticate_with_code(code, <redirect_uri>)
+# result.user has the authenticated user's details
+user_email = result.user.email
+
+# create a session and redirect the user to your dashboard
+```
+
+</TabItem>
+<TabItem value="golang" label="Go">
+
+```go showLineNumbers
+
+import (
+  "github.com/scalekit/scalekit-sdk-go"
+)
+
+func main() {
+  sc := scalekit.NewScalekitClient(
+    SCALEKIT_ENVIRONMENT_URL,
+    SCALEKIT_CLIENT_ID,
+    SCALEKIT_CLIENT_SECRET
+  )
+
+  // Handle the oauth redirect_url
+  // fetch code and error_description from request parameters.
+  code := r.URL.Query().Get("code")
+  error := r.URL.Query().Get("error")
+  errorDescription := r.URL.Query().Get("error_description")
+
+  if error != "" {
+    // handle errors and exit
+  }
+
+
+  // if there are no errors and if this is not an IdP initiated SSO, then authenticate with the code
+  res, err := sc.AuthenticateWithCode(code, redirectUrl)
+  if err != nil {
+    // handle errors and exit
+  }
+
+  // res.User has the authenticated user's details
+  userEmail := res.User.Email
+
+  // create a session and redirect the user to your dashboard
+}
 ```
 
 </TabItem>

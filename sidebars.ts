@@ -59,7 +59,7 @@ const sidebars: SidebarsConfig = {
     {
       type: "html",
       value:
-        "<span class='text--uppercase text--light sidenav-category-heading'>Implementation Guides</span>",
+        "<span class='text--uppercase text--light sidenav-category-heading'>How-to Guides</span>",
       defaultStyle: true,
     },
     {

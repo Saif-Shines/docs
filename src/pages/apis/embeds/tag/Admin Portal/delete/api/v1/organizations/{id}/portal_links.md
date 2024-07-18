@@ -1,6 +1,6 @@
 
 <CodeWithHeader method="delete" endpoint="/api/v1/organizations/{id}/portal_links">
-<Tabs groupId="tech-stack" queryString>
+<Tabs groupId="tech-stack" querystring>
 <TabItem value="curl" label="cURL">
 
 ```bash showLineNumbers
@@ -13,7 +13,7 @@ curl --location --request DELETE 'https://$ENV_URL/api/v1/organizations/{id}/por
 
 ```js showLineNumbers
 // scalekit client takes care of authentication behind the scenes.
-const sc = new Scalekit(
+const sc = new ScalekitClient(
   SCALEKIT_ENVIRONMENT_URL,
   SCALEKIT_CLIENT_ID,
   SCALEKIT_CLIENT_SECRET
@@ -43,6 +43,24 @@ sc.organization.delete_portal_link(
 )
 
 ```
+
+</TabItem>
+<TabItem value="golang" label="Go">
+  
+  ```go showLineNumbers
+  // scalekit client takes care of authentication behind the scenes.
+  sc := scalekit.NewScalekitClient(
+    SCALEKIT_ENVIRONMENT_URL,
+    SCALEKIT_CLIENT_ID,
+    SCALEKIT_CLIENT_SECRET
+  )
+
+  err := sc.Organization.DeletePortalLink(
+    ctx,
+    organizationId,
+    linkId
+  )
+  ```
 
 </TabItem>
 </Tabs>

@@ -1,5 +1,5 @@
 <CodeWithHeader method="get" endpoint="/oauth/authorize">
-<Tabs groupId="tech-stack" queryString>
+<Tabs groupId="tech-stack" querystring>
 <TabItem value="curl" label="cURL">
 
 ```bash showLineNumbers
@@ -16,10 +16,10 @@ curl --request GET \
 <TabItem value="nodejs" label="Node.js">
 
 ```js showLineNumbers
-import {Scalekit} from "@scalekit-sdk/node";
+import { ScalekitClient } from "@scalekit-sdk/node";
 
 // scalekit client takes care of authentication behind the scenes.
-const scalekit = new Scalekit(
+const scalekit = new ScalekitClient(
   SCALEKIT_ENVIRONMENT_URL,
   SCALEKIT_CLIENT_ID,
   SCALEKIT_CLIENT_SECRET
@@ -80,13 +80,50 @@ authorization_url = scalekit_client.get_authorization_url(
 ```
 
 </TabItem>
-<!-- <TabItem value="golang" label="Go">
+<TabItem value="golang" label="Go">
 
 ```go
-go get https://www.github.com/scalekit-inc/go-sdk
+import (
+  "github.com/scalekit/scalekit-sdk-go"
+)
+
+func main() {
+  sc := scalekit.NewScalekitClient(
+    SCALEKIT_ENVIRONMENT_URL,
+    SCALEKIT_CLIENT_ID,
+    SCALEKIT_CLIENT_SECRET
+  )
+
+  // Authorization URL with organization ID parameter and optional state parameter
+  authorizationURL, err := sc.GetAuthorizationUrl(
+    redirectUri,
+    scalekit.AuthorizationUrlOptions{
+      OrganizationId: "org_12442",
+      State: someState,
+    }
+  )
+
+  // Authorization URL with optional login hint parameter
+  authorizationURL, err := sc.GetAuthorizationUrl(
+    redirectUri,
+    scalekit.AuthorizationUrlOptions{
+      LoginHint: "user@example.com",
+      OrganizationId: "org_12442",
+    }
+  )
+
+  // Authorization URL with connection ID parameter
+  authorizationURL, err := sc.GetAuthorizationUrl(
+    redirectUri,
+    scalekit.AuthorizationUrlOptions{
+      ConnectionId: "conn_1242242",
+    }
+  )
+}
+
 ```
 
-</TabItem> -->
+</TabItem>
 </Tabs>
 </CodeWithHeader>
 <CodeWithHeader title="Response">

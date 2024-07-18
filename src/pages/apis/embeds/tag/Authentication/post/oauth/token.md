@@ -1,5 +1,5 @@
 <CodeWithHeader method="post" endpoint="/oauth/token">
-<Tabs groupId="tech-stack" queryString>
+<Tabs groupId="tech-stack" querystring>
 <TabItem value="curl" label="cURL">
 
 ```bash showLineNumbers
@@ -16,10 +16,10 @@ curl --request POST \
 <TabItem value="nodejs" label="Node.js">
 
 ```js showLineNumbers
-import {Scalekit} from "@scalekit-sdk/node";
+import { ScalekitClient } from "@scalekit-sdk/node";
 
 // scalekit client takes care of authentication behind the scenes.
-const scalekit = new Scalekit(
+const scalekit = new ScalekitClient(
   SCALEKIT_ENVIRONMENT_URL,
   SCALEKIT_CLIENT_ID,
   SCALEKIT_CLIENT_SECRET
@@ -64,6 +64,38 @@ result = scalekit_client.authenticate_with_code(<code>, <redirect_uri>)
 user_email = result.user.email
 
 # TODO Create a session and redirect the user to your dashboard
+```
+
+</TabItem>
+<TabItem value="golang" label="Go">
+
+```go showLineNumbers
+
+import (
+  "github.com/scalekit/scalekit-sdk-go"
+)
+
+func main() {
+  sc := scalekit.NewScalekitClient(
+    SCALEKIT_ENVIRONMENT_URL,
+    SCALEKIT_CLIENT_ID,
+    SCALEKIT_CLIENT_SECRET
+  )
+
+  // Handle the oauth redirect
+  code := r.URL.Query().Get("code")
+  errorDescription := r.URL.Query().Get("error_description")
+  if errorDescription != "" {
+    return errors.New(errorDescription)
+  }
+
+  // fetch user details by exchanding the code received in the request params
+  user, err := sc.AuthenticateWithCode(
+    code,
+    <redirectUri>
+  )
+}
+
 ```
 
 </TabItem>

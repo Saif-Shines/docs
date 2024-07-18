@@ -124,13 +124,24 @@ scalekit_client = ScalekitClient(
 ```
 
 </TabItem>
-<!-- <TabItem value="golang" label="Go">
+<TabItem value="golang" label="Go">
 
-```go
-go get https://www.github.com/scalekit-inc/go-sdk
+```go showLineNumbers
+
+import (
+  "github.com/scalekit-inc/scalekit-sdk-go"
+)
+
+func main() {
+  scalekitClient := scalekit.NewClient(
+    <SCALEKIT_ENVIRONMENT_URL>,
+    <SCALEKIT_CLIENT_ID>,
+    <SCALEKIT_CLIENT_SECRET
+  )
+}
 ```
 
-</TabItem> -->
+</TabItem>
 </Tabs>
 </CodeWithHeader>
 <CodeWithHeader title="Response">

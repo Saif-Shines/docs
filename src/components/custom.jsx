@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "@docusaurus/Link";
 
 export function SimpleCode({ children, className = "" }) {
   return <code className={className + " simple_code"}>{children}</code>;
@@ -7,13 +8,13 @@ export function SimpleCode({ children, className = "" }) {
 export function CardTileWithImage({ url, imageSrc, title, description }) {
   return (
     <article className="col col--4 margin-bottom--lg">
-      <a className="card padding--lg cardContainer" href={url}>
+      <Link className="card padding--lg cardContainer" href={url}>
         <h3>
           <img alt={title} src={imageSrc}></img>
           <p>{title}</p>
         </h3>
         <p>{description}</p>
-      </a>
+      </Link>
     </article>
   );
 }

@@ -97,11 +97,11 @@ const sidebars: SidebarsConfig = {
       label: "Handle SSO Errors",
       id: "sso/guides/setup-sso/error-handling",
     },
-    {
-      type: "doc",
-      label: "Configure SAML Settings",
-      id: "sso/guides/setup-sso/support-advanced-saml-settings",
-    },
+    // {
+    //   type: "doc",
+    //   label: "Configure SAML Settings",
+    //   id: "sso/guides/setup-sso/support-advanced-saml-settings",
+    // },
     {
       type: "html",
       value: "<div />", // The link label

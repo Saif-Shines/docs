@@ -1,152 +1,144 @@
 
 # Add SSO to your Login Page
+<Subtitle>Login page UX strategies to accommodate Single Sign-on</Subtitle>
 
-Single Sign-on works by exchanging user information in a secured format between two trusted parties - your application and your customer's identity provider (IdP). Most of these interactions happen in the browser context and some of the authentication steps need user's intervention.
+Using our [quickstart](/sso/quickstart) guide, you may already have implemented Single Sign-on between your application and your customer's Identity Provider. In this article, let's look at different login page UX strategies that you can adopt to implement Single Sign-on in your application's login page.
 
-The first step of Single Sign On (SSO) authentication flow takes the users to the Authorization URL before they authenticate with their Identity Provider. In this guide, learn how to build login page of your app that redirects the users of an organization to your staging environment’s Authorization endpoint.
+Let's assume that you already let your users log in via email address, password combination or via social providers like Google, GitHub etc.
 
-Maximise your understanding of this guide by using it in conjunction with the [scalekit-nextjs-example](https://github.com/scalekit-inc/scalekit-nextjs-example) repository.
+<figure className="width-50">![Simple Login Page](@site/docs/sso/assets/guides/setup-sso/build-login-page/simple_login_page.png)<figcaption>Example of a simple and clean login page</figcaption></figure>
 
-## Create a Login Form
+Broadly, you can adopt one of the following three different strategies to implement Single Sign-on in your login page
 
-Start by creating a page in your web app where users can login. Use any programming language that fits your technology stack. This guide is using NextJS as the framework and along with Typescript and Tailwind.
+## Strategy 1: Identifier driven Single Sign-on
+In this strategy, you will first collect the email address of the user and depending on the user's email address, you will determine whether to guide the user to Single Sign-on based authentication or password based authentication.
 
-Consider we want to build a login form that collects user’s email address to initiate a Single Sign On (SSO), it might look like this:
+Depending on your implementation, you can decide to authenticate the user via Single Sign-on based on
+1. the domain of the user's email address (or)
+2. authentication settings of the organization to which the user belongs to
 
-<figure className="width-50">
-  ![SSO using
-  Email](@site/docs/sso/assets/guides/setup-sso/build-login-page/1-login-box.png)
-  <figcaption>Single Sign On using Email</figcaption>
-</figure>
+<figure>![Identifier first Login Page](@site/docs/sso/assets/guides/setup-sso/build-login-page/identifier_first_login.png)<figcaption>Identifier first Login. Example: Google</figcaption></figure>
 
-A rough code snippet of the same login form.
+Biggest advantage in this approach is that users don't have to decide the authentication method and you can do it on their behalf based on the identity(email address) information that they supplied. This improves reduces cognitive load for your users and makes their experience smoother.
 
-```tsx title="app/login/page.tsx"
-<form className="space-y-6" onSubmit={initiateAuth}>
-  <div>
-    <label htmlFor="email" className="block text-sm text-gray-600">
-      Work Email
-    </label>
-    <div className="mt-1">
-      <input
-        type="text"
-        name="email"
-        id="email"
-        placeholder="username@scalekit.com"
-        className="text-black block w-full border<<truncated>>"
-        value={state.email}
-        onChange={handleChange}
-        required
-      />
-    </div>
-  </div>
-  <div>
-    <button
-      type="submit"
-      className="px-4 py-2 w-full border borde<<truncated>>"
-    >
-      Continue with SAML SSO
-    </button>
-  </div>
-</form>
+Especially in scenarios where users might be logging in using passwords until one day, their admin decides to turn on Single Sign-on option and mandates their users to login only via Single Sign-on and not via password. In this situation, users don't have to change their authentication behaviour but you will do it for them. Popular products like [Google](https://accounts.google.com), [Microsoft](https://login.microsoftonline.com), [AWS](https://console.aws.amazon.com/console/) adopted this strategy in their login page implementation.
+
+
+## Strategy 2: Login with Single Sign-on Button
+In this strategy, you will add one more "Login with SSO" button in your login page prompting users to choose this option explicitly. The obvious advantage of this approach is you present all the options available for the user and let the user decide how they want to login to your application.
+
+<figure className="width-50">![Explicit option for Login with SSO](@site/docs/sso/assets/guides/setup-sso/build-login-page/sso_button_login.png)<figcaption>Explicit option for Login with SSO. Example: Cal.com</figcaption></figure>
+
+In this approach, if a user tries to login via password even though their admin mandates their employees to login via Single Sign-on, you should force the users to authentication via Single Sign-on instead of showing an error message thus improving the user experience. Popular products like [Cal.com](https://app.cal.com/auth/login), [Notion](https://www.notion.so/login) adopted this strategy in their login page implementation.
+
+:::tip
+In either of the above strategies, even if a user chooses an authentication method like Social Login, verify the user's identity and if that user is supposed to authenticate via Single Sign-on based on their admin's configuration in your application, you should prompt the user to re-authenticate via Single Sign-on.
+:::
+
+## Strategy 3: Tenant specific Login Page
+In this strategy, instead of implementing a single login page served at https:<span></span>//app.yoursaas.com/login, you will instead serve different login pages for each tenant. For example, https://<span></span>tenant1.yoursaas.com/login, https://<span></span>tenant2.yoursaas.com/login.
+
+Depending on the login page url that a tenant uses, you can show only those authentication methods that are applicable for that tenant and optimizing the user experience further.
+
+_placeholder image for tenant based login pages>
+
+Popular products like [Zendesk](https://www.zendesk.com/in/login/), [Slack](https://scalekit.slack.com/) adopted this strategy in their login page implementation.
+
+One important thing you need to keep in mind with this strategy is, your users need to remember the tenant URL first before they can access their tenant's login page.
+
+## Initiating Single Sign-on from your login page
+Once you have decided on the strategy to implement in your login page, let's wire your login page to let your users login using SSO via Scalekit.
+
+Regardless of the strategy you implemented, once you have identified that the user needs to login via Single Sign-on, you can construct the authorization_url via our Scalekit SDK and redirect the user to this url. Refer the code samples below.
+
+
+<Tabs groupId="tech-stack" queryString>
+<TabItem value="nodejs" label="Node.js">
+
+```javascript showLineNumbers
+import { Scalekit } from "@scalekit-sdk/node";
+
+// initialize the SDK client
+const scalekit = new Scalekit(
+  SCALEKIT_ENVIRONMENT_URL,
+  SCALEKIT_CLIENT_ID,
+  SCALEKIT_CLIENT_SECRET
+);
+
+// Option 1: Authorization URL with the organization ID
+const authorizationURL = scalekit.getAuthorizationUrl(redirectUri, {
+  organizationId: "org_12442",
+  state: state, // optional
+});
+
+// Option 2: Authorization URL with login hint
+const authorizationURL = scalekit.getAuthorizationUrl(redirectUri, {
+  loginHint: "user@example.com",
+});
+
+// TODO: redirect the user to this authorizationURL
 ```
 
-The form tracks the users inputs and saves the current state and upon the button click initiates the Authorization — using <SimpleCode>handleChange</SimpleCode> and <SimpleCode>initiateAuth</SimpleCode> methods. Before we continue, next let’s look all the methods you can initiate the authentication flow.
+</TabItem>
+<TabItem value="py" label="Python">
 
-## Choosing Your SSO Authentication Strategy
+```python showLineNumbers
+from scalekit import ScalekitClient, AuthorizationUrlOptions, CodeAuthenticationOptions
 
-There are multiple approaches for implementing SSO login in B2B apps. We have seen one approach in the Login Form above where users will continue to log into your B2B app by using their email address.
+scalekit_client = ScalekitClient(
+  <SCALEKIT_ENVIRONMENT_URL>,
+  <SCALEKIT_CLIENT_ID>,
+  <SCALEKIT_CLIENT_SECRET>
+)
 
-**Using Email Address:** A familiar and straightforward approach for your users is give in their email address. Based on the domain in their email address, Scalekit will determine the SSO connection required to successfully log in the user.
+options = AuthorizationUrlOptions()
 
-**Using Organization ID:** Scalekit will choose the SSO connection configured with B2B app based on the <SimpleCode>organization_id</SimpleCode> and initiates the SSO for the users.
 
-```jsx
-<input
-  type="text"
-  name="organizationId"
-  id="organizationId"
-  placeholder="org_1234412"
-  className="text-black block w-full <<truncated>>"
-  value={state.organizationId}
-  onChange={handleChange}
-  required
-/>
+# Option 1: Authorization URL with the organization ID
+options.organization_id = 'org_12442'
+
+# Option 2: Authorization URL with login hint
+options.login_hint = '<user@example.com>'
+
+authorization_url = scalekit_client.get_authorization_url(
+  redirect_uri=<redirect_uri>,
+  options=options
+)
 ```
 
-**Using Connection ID:** In the cases when your B2B app has only the <SimpleCode>connection_id</SimpleCode>, this strategy can initiate SSO for the users.
+</TabItem>
+<TabItem value="golang" label="Go">
 
-```jsx
-<input
-  type="text"
-  name="connectionId"
-  id="connectionId"
-  placeholder="conn_12434243"
-  className="text-black block w-full border bord<<truncated>>"
-  value={state.connectionId}
-  onChange={handleChange}
-  required
-/>
-```
+```go showLineNumbers
 
-The code examples contain <SimpleCode>name</SimpleCode>, <SimpleCode>id</SimpleCode> attributes that lets your B2B app inform authentication strategy to choose.
+import (
+  "github.com/scalekit/scalekit-sdk-go"
+)
 
-## Initiate Authentication
+func main() {
+  sc := scalekit.NewScalekitClient(
+    SCALEKIT_ENVIRONMENT_URL,
+    SCALEKIT_CLIENT_ID,
+    SCALEKIT_CLIENT_SECRET
+  )
 
-Next, redirect the user to the Authorization URL.
+  options := scalekit.AuthorizationUrlOptions{}
+  // use one of the three strategies below to determine how to log the user in.
 
-Upon submitting the form, the <SimpleCode>initateAuth</SimpleCode> method is invoked and options required to construct the Authorization URL passed to <SimpleCode>getAuthorizationUrl()</SimpleCode> method. This guide provides a concise overview. For in-depth information on the required options, continue reading the Authorization URL section.
+  // If you would like to authenticate the user via organization_id
+  options.OrganizationId = "org_12442"
 
-```jsx title="app/login/page.tsx"
-const handleChange = (e: FormEvent<HTMLInputElement>): void => {
-  const { name, value } = e.currentTarget;
-  setState({
-    ...state,
-    [name]: value,
-  });
-};
+  // If you would like to authenticate the user via their email address
+  // Domain portion of the user's email address is used to detect the appropriate enterprise SSO connection
+  options.LoginHint = "<user@example.com>"
 
-const initiateAuth = async (event: FormEvent) => {
-  event.preventDefault();
-  const url = await getAuthorizationUrl({ ...state });
-  router.push(url);
-};
-```
-
-Since these operations happen the browser side we secure our app through industry best practices as follows:
-
-```jsx title="app/actions/login.ts"
-export async function getAuthorizationUrl(option: Option) {
-  const { connectionId } = option;
-  const state = v4();
-  cookies().set({
-    name: 'state',
-    value: state,
-    httpOnly: true, // Prevents Cross Site Scripting attacks
-    path: '/',
-  })
-  return scalekit.getAuthorizationUrl(
-    process.env.AUTH_REDIRECT_URI!,
-    {
-     state: state, // CSRF protection or any other state you want to pass
-     connectionId: connectionId ? connectionId : process.env.AUTH_CONNECTION_ID!
-    }
-  );
+  authorizationURL := sc.GetAuthorizationUrl(
+    redirectUrl,
+    options,
+  )
+  // next step is to redirect the user to this authorizationURL
 }
 ```
 
-The <SimpleCode>getAuthorizationUrl()</SimpleCode> will return a URL string value similar to:
-
-```sh
-https://b2b-app-dev.scalekit.dev/oauth/authorize?
-    response_type=code&
-    client_id=skc_1234&
-    scope=openid%20profile&
-    redirect_uri=https%3A%2F%2Fyoursaas.com%2Fcallback&
-    organization_id=org_1243412&
-    state=aHR0cHM6Ly95b3Vyc2Fhcy5jb20vZGVlcGxpbms%3D
-```
-
-## Next steps
-
-Now that users are successfully redirected for authentication, your B2B app needs to understand their roles and permissions. This is where handling user profiles becomes crucial. Let's explore how to gather and utilize user details effectively. Keep reading on Handle User Profile to continue building your secure B2B application.
+</TabItem>
+</Tabs>

@@ -88,17 +88,31 @@
     --ifm-paragraph-margin-bottom: 10px;
     --ifm-table-border-color: #e8e8e8;
 }
+
 html {
     font-size: 0.875rem;
 }
+
 :where(.button--primary):not(.button--outline):hover {
     --ifm-button-background-color: var(--scalekit-blue);
     --ifm-button-border-color: var(--scalekit-blue);
 }
 
 .homepage {
-    margin: 0 10%;
+    margin: 0 7%;
 }
+
+.homepage .row {
+    margin-left: -5%;
+}
+
+.homepage .hero {
+    background: #edefff;
+    margin: 0 -20%;
+    padding: 0 15%;
+    margin-top: -2rem;
+}
+
 .theme-code-block {
     display: grid;
 }
@@ -187,7 +201,8 @@ figure img {
 } */
 
 .menu__link--sublist-caret:before {
-    content: none; /* removes the arrow icone*/
+    content: none;
+    /* removes the arrow icone*/
     margin-right: 2px;
     margin-left: -1.25rem;
     line-height: 1.25rem;
@@ -247,6 +262,7 @@ figure img {
     font-size: 13px;
     color: rgb(17, 19, 23);
 }
+
 .secondary_nav_container a.active {
     font-weight: 500;
 }
@@ -282,6 +298,7 @@ figure img {
 .theme-doc-sidebar-item-category-level-1 {
     margin-bottom: 24px;
 }
+
 /*
 .theme-doc-sidebar-item-link-level-1 {
     margin-bottom: 4px;
@@ -568,13 +585,16 @@ ul.table-of-contents.table-of-contents__left-border:before {
 .hero--primary {
     --ifm-hero-background-color: #00bcd4;
 }
+
 .navbar {
     padding: 0 var(--ifm-navbar-padding-horizontal);
 }
+
 .navbar__logo {
     cursor: pointer;
     height: auto;
 }
+
 .alert a {
     color: inherit;
 }
@@ -806,17 +826,22 @@ footer {
     position: relative;
     margin-top: auto;
     width: 100%;
-    background-color: transparent; /* Adjust background color as needed */
-    padding-top: 3rem; /* Add padding for spacing */
+    background-color: transparent;
+    /* Adjust background color as needed */
+    padding-top: 3rem;
+    /* Add padding for spacing */
 }
+
 .footerLink {
     margin: 1rem 0;
     vertical-align: middle;
 }
+
 svg {
     vertical-align: text-bottom;
     margin-right: 4px;
 }
+
 .font_large {
     font-size: 1.5rem;
 }
@@ -824,6 +849,7 @@ svg {
 .font-1 {
     font-size: 1rem;
 }
+
 .language svg {
     height: 2em;
     width: 2em;
@@ -833,9 +859,11 @@ svg {
 .language-row {
     width: 75%;
 }
+
 /* Add space between ProductList component and the footer */
 .ProductList {
-    margin-bottom: 20px; /* Adjust margin as needed for spacing */
+    margin-bottom: 20px;
+    /* Adjust margin as needed for spacing */
 }
 
 .tabs {
@@ -961,9 +989,11 @@ svg {
     position: relative;
     margin-bottom: 1rem;
 }
+
 .scalar-card .tabs-container {
     margin-bottom: 0;
 }
+
 .scalar-card table {
     margin-bottom: 0;
     border: 0;
@@ -976,10 +1006,12 @@ svg {
 .scalar-card table th {
     white-space: nowrap;
 }
+
 .scalar-card-sticky {
     position: sticky;
     top: 4rem;
 }
+
 .scalar-card-header {
     background-color: var(--scalar-background-2);
     border-bottom: 1px solid var(--scalar-border-color);
@@ -1026,6 +1058,7 @@ svg {
     text-transform: uppercase;
     color: var(--scalar-color-yellow);
 }
+
 .scalar-card-header-title span.method.put,
 .endpoint span.put {
     text-transform: uppercase;
@@ -1063,6 +1096,7 @@ svg {
 .endpoint:hover {
     text-decoration: none;
 }
+
 .endpoint span {
     color: var(--scalar-color-1);
     cursor: pointer;
@@ -1105,14 +1139,17 @@ svg {
     font-size: var(--scalar-small);
     padding-bottom: 1rem;
 }
+
 .ApiReference-Parameter:last-child {
     border-bottom: 0;
 }
+
 .ApiReference-Parameter.header {
     font-weight: 600;
     font-size: 1rem;
     padding-top: 1rem;
 }
+
 .ApiReference-Parameter .attr {
     display: flex;
     flex-direction: row;
@@ -1131,16 +1168,20 @@ svg {
     font-weight: 500;
     font-size: smaller;
 }
+
 .headingWithStickyNavBar {
     scroll-margin-top: calc(var(--ifm-navbar-height) + 0.5rem);
 }
+
 .ApiCategoryList {
     padding-left: 14px;
 }
+
 .ApiCategoryList.method a {
     display: flex;
     justify-content: space-between;
 }
+
 .ApiCategoryList.method a:after {
     font-family: var(--ifm-font-family-monospace);
     font-weight: 600;
@@ -1165,18 +1206,22 @@ svg {
     content: "POST";
     --method-color: var(--scalar-color-green);
 }
+
 .ApiCategoryList.delete a:after {
     content: "DEL";
     --method-color: var(--scalar-color-red);
 }
+
 .ApiCategoryList.patch a:after {
     content: "PATCH";
     --method-color: var(--scalar-color-yellow);
 }
+
 .ApiCategoryList.put a:after {
     content: "PUT";
     --method-color: var(--scalar-color-orange);
 }
+
 .sidebarContainer {
     display: flex;
     flex-direction: column;
@@ -1184,9 +1229,11 @@ svg {
     padding-top: var(--ifm-navbar-height);
     width: var(--doc-sidebar-width);
 }
+
 .col:has(.custom_container) {
     padding: 0;
 }
+
 .custom_container aside {
     display: block;
     width: var(--doc-sidebar-width);
@@ -1204,6 +1251,7 @@ svg {
     height: 100%;
     max-height: 100vh;
 }
+
 .sidebar nav {
     display: flex;
     flex-direction: column;
@@ -1211,17 +1259,21 @@ svg {
     padding-top: var(--ifm-navbar-height);
     width: var(--doc-sidebar-width);
 }
+
 .custom_container {
     display: flex;
     width: 100%;
 }
+
 .custom_container .markdown {
     margin: 0 calc(var(--ifm-spacing-horizontal) * 1);
     padding: 0 4%;
 }
+
 article:has(.custom_container) {
     padding: 0;
 }
+
 .margin-vert--lg:has(.custom_container) {
     margin: 0 !important;
 }
@@ -1236,12 +1288,15 @@ article:has(.custom_container) {
 .ApiReference-Parameters summary {
     font-weight: 500;
 }
+
 .ApiReference-Parameters details.alert > summary:before {
     border-color: transparent transparent transparent var(--ifm-color-primary);
 }
+
 ::marker {
     display: none;
 }
+
 .docsRating .btn-outline {
     margin: 0 8px;
     color: var(--ifm-color-primary);
@@ -1251,34 +1306,42 @@ article:has(.custom_container) {
     align-items: center;
     background-color: #fff;
 }
+
 .btn-outline svg {
     height: 12px;
 }
+
 .btn-outline:hover {
     background-color: #f9f9f9;
     text-decoration: none;
 }
+
 .hidden {
     display: none;
 }
+
 .feedbackContainer {
     text-align: left;
     margin-left: 0;
     margin-top: 20px;
 }
+
 .feedbackContainer textarea {
     border: 1px solid #cecece;
     width: 100%;
     font-size: 0.9rem;
 }
+
 .feedbackContainer a.btn {
     font-size: 0.9rem;
     margin-left: 0;
 }
+
 h1 .badge {
     font-size: small;
     vertical-align: middle;
 }
+
 .sidenav-category-heading {
     font-weight: 600;
     color: var(--ifm-color-emphasis-800);
@@ -1286,6 +1349,7 @@ h1 .badge {
     font-family: var(--ifm-heading-font-family);
     letter-spacing: 0.5px;
 }
+
 .menu__list-item:has(.sidenav-category-heading) {
     padding-bottom: 0px;
 }
@@ -1294,6 +1358,7 @@ h1 .badge {
     border: 1px solid #ccc;
     border-radius: 8px;
 }
+
 .simple_card {
     padding: 10px;
     display: inline-block;

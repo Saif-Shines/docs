@@ -5,9 +5,11 @@ displayed_sidebar: homeSidebar
 
 # Normalized User Profile
 
-A standardized representation of user information obtained after successful Single Sign-On (SSO) authentication via Scalekit, regardless of the Identity Provider's original format.
+When a user logs in with SSO, each identity provider shares the user profile information in their own format. This adds complexity for the application developers to parse the user profile info and code related identity workflows. To make this seamless for developers, Scalekit normalizes the user profile info into a standard set of fields across all identity providers.
 
-```js wordWrap=true title="Example of Normalized User Profile"
+This means that you'd always receive the user profile payload in a fixed set of fields, irrespective of the identity provider and protocol you interact with. This is one of our foundational aspects of the Unified SSO solution.
+
+```js wordWrap=true title="Sample Normalized User Profile"
 {
     "email": "john.doe@acmecorp.com",
     "email_verified": true,

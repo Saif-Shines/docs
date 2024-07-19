@@ -5,11 +5,11 @@ displayed_sidebar: homeSidebar
 
 # Inspect Claims in ID Token
 
-An ID Token is a JSON Web Token (JWT) containing cryptographically signed claims about a user's profile information, issued by Scalekit after successful authentication.
+An ID Token is a JSON Web Token (JWT) containing cryptographically signed claims about a user's profile information. This is issued by Scalekit after successful authentication. The ID Token is a Base64-encoded JSON object with three parts: header, payload, and signature.
 
-The ID Token is a Base64-encoded JSON object with three parts: header, payload, and signature. This reference focuses on the payload.
+Here's an example of the payload. Note this is formatted for readability and the header and signature fields are skipped.
 
-## Example Payload
+## Sample Payload
 
 ```js
 {

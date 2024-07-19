@@ -1,6 +1,6 @@
 ---
 excerpt: "This article describes how to integrate Scalekit with your Auth0 implementation"
-metadata: 
+metadata:
   description: "This document provides a guide on integrating Scalekit with Auth0 applications for seamless Single Sign-on Authentication. It includes steps on configuring Scalekit as an OpenID Connect provider in your Auth0 tenant."
 ---
 # Auth0
@@ -52,7 +52,7 @@ Use the table below to find out more about how to get the relevant information a
 
 |Parameter|Description|
 |---|---|
-|AUTH0_TENANT_DOMAIN|This is your Auth0 tenant url. Typically, looks like https:<nolink />//yourapp.us.auth0.com|
+|AUTH0_TENANT_DOMAIN|This is your Auth0 tenant url. Typically, looks like https:<span></span>//yourapp.us.auth0.com|
 |API_TOKEN|[Generate an API token](https://auth0.com/docs/secure/tokens/access-tokens/management-api-access-tokens) from your Auth0 dashboard and use it to authenticate your Auth0 API calls.|
 |SCALEKIT_ENV_URL|Find this in your [API config](https://app.scalekit.com) section of Scalekit Dashboard|
 |SCALEKIT_CLIENT_SECRET|Generate a new client secret in your [API config](https://app.scalekit.com) section of Scalekit Dashboard and use that here|

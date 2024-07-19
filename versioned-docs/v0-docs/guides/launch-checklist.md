@@ -38,7 +38,7 @@ As you complete each item, feel free to check off the appropriate box. The statu
 
 <LabeledCheckbox id="portal_url"> **Review Admin Portal URL**</LabeledCheckbox>
 
-    Customize the admin portal URL to match your domain (https<nolink />://sso.yourdomain.com) for a seamless brand experience. Remember to update this in your .env file post-CNAME configuration.
+    Customize the admin portal URL to match your domain (https<span></span>://sso.yourdomain.com) for a seamless brand experience. Remember to update this in your .env file post-CNAME configuration.
 
 <LabeledCheckbox id="error_handling"> **Graceful Error Handling**</LabeledCheckbox>
 

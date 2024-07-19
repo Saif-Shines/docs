@@ -1,6 +1,7 @@
-# Error Handling
+# Error Handling during Single Sign-on
+<Subtitle>Reference of error codes and how to handle them</Subtitle>
 
-If there are any configuration or application issues while the user tries to login with Single Sign-on via Scalekit, your application's redirect uri will receive the details of the error via the request parameters: error, error_description.
+If there are any issues while the user tries to login with Single Sign-on via Scalekit, your application's redirect URI will receive the details of the error via the request parameters: error, error_description. Depending on the nature of the error, you would want to handle it gracefully and offer a better customer experience.
 
 ## Integration related errors
 
@@ -26,6 +27,12 @@ Ideally, you should catch them during your integration with Scalekit and once re
 ## SSO Configuration related errors
 
 If there are issues related to the SSO configuration, you will receive the following errors in your redirect_uri endpoint. To fix most of these issues, the SSO configuration needs to be reviewed and fixed.
+
+:::tip
+Ideally, these errors should have been caught and handled by your customer’s IT admin at the time of SSO configuration. If there are issues during SSO configuration, during "Test Connection" stage, your customers will able to review and fix the configuration.
+
+Once your customer configures the SSO settings properly, tests the configuration and enables it - you shouldn’t receive these errors unless something has been modified, tampered or changed at the Identity Provider side.
+:::
 
 | Error Code | Error Description | Possible Resolution Strategy |
 |---|---| --- |

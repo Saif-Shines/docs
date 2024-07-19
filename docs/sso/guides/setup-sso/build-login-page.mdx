@@ -1,5 +1,7 @@
 
-# Implementing Authorization Redirects in Login Flows
+# Add SSO to your Login Page
+
+Single Sign-on works by exchanging user information in a secured format between two trusted parties - your application and your customer's identity provider (IdP). Most of these interactions happen in the browser context and some of the authentication steps need user's intervention.
 
 The first step of Single Sign On (SSO) authentication flow takes the users to the Authorization URL before they authenticate with their Identity Provider. In this guide, learn how to build login page of your app that redirects the users of an organization to your staging environment’s Authorization endpoint.
 
@@ -51,7 +53,7 @@ A rough code snippet of the same login form.
 
 The form tracks the users inputs and saves the current state and upon the button click initiates the Authorization — using <SimpleCode>handleChange</SimpleCode> and <SimpleCode>initiateAuth</SimpleCode> methods. Before we continue, next let’s look all the methods you can initiate the authentication flow.
 
-## **Choosing Your SSO Authentication Strategy**
+## Choosing Your SSO Authentication Strategy
 
 There are multiple approaches for implementing SSO login in B2B apps. We have seen one approach in the Login Form above where users will continue to log into your B2B app by using their email address.
 

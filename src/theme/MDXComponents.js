@@ -16,7 +16,11 @@ import Markdown from "react-markdown";
 import { SimpleCard } from "@site/src/components/ProductList/ProductList";
 import { FancyLink } from "@site/src/components/Card/CardWithArrow";
 import QuickLinkStack from "@site/src/components/QuickLinkStack";
-import { GlossaryListing } from "@site/src/components/Glossary/Glossary";
+import {
+  GlossaryListing,
+  TooltippedGlossary,
+} from "@site/src/components/Glossary/Glossary";
+
 export default {
   // Re-use the default mapping
   ...MDXComponents,
@@ -41,4 +45,5 @@ export default {
   FancyLink,
   QuickLinkStack,
   GlossaryListing,
+  TooltippedGlossary,
 };

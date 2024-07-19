@@ -37,6 +37,7 @@
     --ifm-font-family-base: system-ui, "Inter", sans-serif;
     --ifm-font-family-monospace: "Fira Code", "Roboto Mono", monospace,
         monospace;
+    --scalekit-blue: #4f5eff;
     --tblr-blue: #206bc4;
     --tblr-azure: #4299e1;
     --tblr-indigo: #4263eb;
@@ -90,6 +91,11 @@
 html {
     font-size: 0.875rem;
 }
+:where(.button--primary):not(.button--outline):hover {
+    --ifm-button-background-color: var(--scalekit-blue);
+    --ifm-button-border-color: var(--scalekit-blue);
+}
+
 .homepage {
     margin: 0 10%;
 }
@@ -157,6 +163,7 @@ figure img {
 .table-of-contents__link:hover,
 .table-of-contents__link:hover code {
     font-weight: 500;
+    color: var(--scalekit-blue);
 }
 
 .menu.thin-scrollbar,
@@ -301,7 +308,7 @@ figure img {
     /* background: none; */
     border-left: 2px solid;
     border-radius: 0;
-    color: blue;
+    color: var(--scalekit-blue);
 }
 
 .menu__caret:before {

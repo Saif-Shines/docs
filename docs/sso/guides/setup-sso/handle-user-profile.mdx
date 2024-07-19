@@ -7,7 +7,7 @@ Maximise your understanding of this guide by using it in conjunction with the [s
 
 ## Redirection to the App
 
-The authorization URL carries a <SimpleCode>redirect_uri</SimpleCode> parameter in the first step to remember to callback your B2B app after IdP authentication. This parameter reverts to your B2B application post-IdP authentication. For instance, while working in a development environment, the redirect URL maybe <SimpleCode>http:<nolink />//localhost:3000/auth/callback</SimpleCode>
+The authorization URL carries a <SimpleCode>redirect_uri</SimpleCode> parameter in the first step to remember to callback your B2B app after IdP authentication. This parameter reverts to your B2B application post-IdP authentication. For instance, while working in a development environment, the redirect URL maybe <SimpleCode>http:<span></span>//localhost:3000/auth/callback</SimpleCode>
 
 Handle the <SimpleCode>/auth/callback</SimpleCode> route in your app. This route receives user details in the form of a token after successful authentication. If the authentication is unsuccessful, your app will receive an error response, which needs to be addressed appropriately.
 

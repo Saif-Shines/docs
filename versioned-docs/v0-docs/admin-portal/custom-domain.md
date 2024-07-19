@@ -4,9 +4,9 @@
 
 ## Introduction
 
-By default, all your environments are accessible via a unique endpoint URL hosted at scalekit.com domain. For example <SimpleCode>https:<nolink />//yoursaas.scalekit.com</SimpleCode>.
+By default, all your environments are accessible via a unique endpoint URL hosted at scalekit.com domain. For example <SimpleCode>https:<span></span>//yoursaas.scalekit.com</SimpleCode>.
 
-But, if you would like to offer a deeply customized experience to your customers and show your branding everywhere, we offer you an option to customize this url to be hosted on your domain via CNAME configuration. For example: <SimpleCode>https:<nolink />//sso.yoursaas.com</SimpleCode>
+But, if you would like to offer a deeply customized experience to your customers and show your branding everywhere, we offer you an option to customize this url to be hosted on your domain via CNAME configuration. For example: <SimpleCode>https:<span></span>//sso.yoursaas.com</SimpleCode>
 
 ## Visibility of Custom Domain
 

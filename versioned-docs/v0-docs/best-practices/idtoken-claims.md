@@ -44,7 +44,7 @@ Here's an example, formatted for readability (and ignoring the header and signat
 |<SimpleCode>amr</SimpleCode>|always|Array of Authentication Method Reference values that the user used to sign-in. Usually, it will have the connection_id using which the user completed the SSO flow.|
 |<SimpleCode>exp</SimpleCode>|always|Expiration time on or after which the ID token must not be accepted. Represented in Unix time (integer seconds).|
 |<SimpleCode>iat</SimpleCode>|always|The time the ID token was issued. Represented in Unix time (integer seconds).|
-|<SimpleCode>iss</SimpleCode>|always|The Issuer Identifier for the Issuer of the response. It must be your environment url. https:<nolink/>//yoursaas.scalekit.com or https:<nolink/>//sso.yourdomain.com|
+|<SimpleCode>iss</SimpleCode>|always|The Issuer Identifier for the Issuer of the response. It must be your environment url. https:<span></span>//yoursaas.scalekit.com or https:<span></span>//sso.yourdomain.com|
 |<SimpleCode>oid</SimpleCode>|always|organization_id of the user|
 |<SimpleCode>sub</SimpleCode>|always|An identifier for the user, as submitted by the Identity Provider that completed the Single Sign-on.|
 |<SimpleCode>at_hash</SimpleCode>|always|Access token hash. Provides validation that the access token is tied to the identity token. |

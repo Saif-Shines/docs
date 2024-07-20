@@ -92,9 +92,13 @@
 html {
     font-size: 0.875rem;
 }
-
+.button--primary {
+    --ifm-button-background-color: var(--scalekit-blue);
+    --ifm-button-border-color: var(--scalekit-blue);
+}
 :where(.button--primary):not(.button--outline):hover {
     --ifm-button-background-color: var(--scalekit-blue);
+    opacity: 0.9;
     --ifm-button-border-color: var(--scalekit-blue);
 }
 
@@ -522,7 +526,11 @@ p {
         min-width: 75%;
     }
 }
-
+@media (pointer: fine) {
+    .thin-scrollbar {
+        scrollbar-width: auto;
+    }
+}
 .cardContainer {
     --ifm-link-color: var(--ifm-color-emphasis-800);
     --ifm-link-hover-color: var(--ifm-color-emphasis-700);

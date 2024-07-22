@@ -53,7 +53,7 @@ Now you're ready to start integrating social connections into your app! Next, we
 To start login with social connections, your app must redirect users to the Scalekit Authorization URL with appropriate social connection provider details.
 
 Construct the Authorization URL using the following query parameters:
-| Parameter | Details                                                                                                                                                                                                                                                                                                                                                             |   |   |   |
+| Parameter | Details  |   |   |   |
 |------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---|---|---|
 | <SimpleCode className="text--semibold">redirect_uri</SimpleCode>           | Where Scalekit sends users after IdP authentication.  <br />Example: <SimpleCode>https:<span></span>//your-saas-app.com/auth/callback</SimpleCode>  After the user is logged into the social provider, Scalekit redirects the user to this URI with one time authorization `code`. In the later section, we will explain how to use this unique `code` to fetch user details |   |   |   |
 | <SimpleCode className="text--semibold">client_id</SimpleCode>              | Your app's unique Scalekit identifier which is mandatory for all requests. This uniquely identifies both your app and the environment (staging, prod).                                                                                                                                                                                                              |   |   |   |
@@ -68,7 +68,7 @@ https://auth.scalekit.com/authorize?
 ```
 See our [Authorization URL Parameters Guide](/sso/guides/key-concepts/authorization-url) for a full list of accepted parameters.
 
-Next, Construct your Authorization URL with these parameters and redirect users to this URL when they try to log in.
+Next, construct your Authorization URL with these parameters and redirect users to this URL when they try to log in.
 
 <Tabs groupId="tech-stack" queryString>
 <TabItem value="nodejs" label="Node.js">

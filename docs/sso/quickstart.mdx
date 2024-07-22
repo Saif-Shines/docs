@@ -61,50 +61,26 @@ Now you're ready to start integrating SSO into your app! Next, we'll cover how t
 
 ## 2. Authorize the Users
 
-To start Single Sign-On (SSO), your app must redirect users to the Scalekit Authorization URL.
+To start login with Single Sign-On (SSO), your app must redirect users to the Scalekit Authorization URL with appropriate social connection provider details.
 
 Construct the Authorization URL using the following query parameters:
 
-**Redirect URI**: Where Scalekit sends users after IdP authentication.
+| Parameter | Details  |   |   |   |
+|------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---|---|---|
+| <SimpleCode className="text--semibold">redirect_uri</SimpleCode>           | URI endpoint on your server to complete user login via SSO.  <br />Example: <SimpleCode>https:<span></span>//your-saas-app.com/auth/callback</SimpleCode>  After the user is logged into the social provider, Scalekit redirects the user to this URI with one time authorization `code`. In the later section, we will explain how to use this unique `code` to fetch user details |   |   |   |
+| <SimpleCode className="text--semibold">client_id</SimpleCode>              | Your app's unique Scalekit identifier which is mandatory for all requests. This uniquely identifies both your app and the environment (staging, prod).                                                                                                                                                                                                              |   |   |   |
+| One of the SSO Connection Identifiers| <SimpleCode className="text--semibold">organization_id</SimpleCode>: Informs Scalekit which organization's Single Sign-on to use to authenticate the user with. For e.g., `org_124234234`.<br />Note: If there are multiple active SSO connections configured for an organization, we will pick the first SSO connection to authenticate the user with.  <br /><br /><SimpleCode className="text--semibold">connection_id</SimpleCode>: Informs Scalekit which specific Single Sign-on connection to use to authenticate the user with 's Single Sign-on to use. For e.g., `conn_124234234`. <br /><br /><SimpleCode className="text--semibold">domain</SimpleCode>: Informs Scalekit which Single Sign-on connection to use that is configured with the domain. For e.g., `acmecorp.com`. <br />|   |   |   |
 
-Example: <SimpleCode>https:<span></span>//your-saas-app.com/auth/callback</SimpleCode>
-
-After auth, Scalekit adds a temporary <SimpleCode>code</SimpleCode> to this URI. You'll <SimpleCode>POST</SimpleCode> this <SimpleCode>code</SimpleCode> with your <SimpleCode>client_secret</SimpleCode> to get user details.
-
-**SSO Connection Identifier**: Tells Scalekit which IdP to use.
-
-Provide one of:
-
-- <SimpleCode>organization_id</SimpleCode>: Preferred for both SAML and OIDC. -
-  Example: <SimpleCode>org_12434341</SimpleCode>
-- <SimpleCode>connection_id</SimpleCode>: Specific SSO connection ID. - Example:
-  <SimpleCode>conn_121414141</SimpleCode>
-- <SimpleCode>domain</SimpleCode>: Organization mandate for domain-wide SSO.
-  This query parameter automatically detects the appropriate SSO connection. -
-  Example: <SimpleCode>google.com</SimpleCode> or <SimpleCode>yourcustomerdomain.com</SimpleCode>
-
-<SimpleCode>**client_id**</SimpleCode>: Your app's unique Scalekit identifier
-which is mandatory for all requests. This Identifies both your app and the
-environment (staging, prod).
-
-<p style={{ textDecoration: "underline" }}>Example Authorization URL</p>
-
-```sh title="Authorization URL"
+```sh title="Example Authorization URL"
 https://auth.scalekit.com/authorize?
   client_id=skc_122056050118122349527&
   redirect_uri=https://yourapp.com/auth/callback&
   organization_id=org_12434341
 ```
 
-This URL tells Scalekit:
-
-- Your app ID (<SimpleCode>client_id</SimpleCode>)
-- Where to send the user after auth (<SimpleCode>redirect_uri</SimpleCode>)
-- Which organization's IdP to use (<SimpleCode>organization_id</SimpleCode>)
-
 See our [Authorization URL Parameters Guide](/sso/guides/key-concepts/authorization-url) for a full list of accepted parameters.
 
-Next, Construct your Authorization URL with these parameters and redirect users to this URL when they try to log in.
+Next, construct your Authorization URL with these parameters and redirect users to this URL when they try to log in.
 
 <Tabs groupId="tech-stack" queryString>
 <TabItem value="nodejs" label="Node.js">
@@ -127,8 +103,7 @@ const authorizationURL = scalekit.getAuthorizationUrl(redirectUri, {
 
 // Option 2: Authorization URL with login hint
 const authorizationURL = scalekit.getAuthorizationUrl(redirectUri, {
-  loginHint: "user@example.com", // optional
-  organizationId: "org_12442",
+  loginHint: "user@example.com",
 });
 
 // Option 3: Authorization URL with the connection ID
@@ -193,9 +168,6 @@ func main() {
 
   // If you would like to authenticate the user via organization_id
   options.OrganizationId = "org_12442"
-
-  // If you would like to authenticate the user via provider
-  options.Provider = "google"
 
   // If you would like to authenticate the user via their email address
   // Domain portion of the user's email address is used to detect the appropriate enterprise SSO connection
@@ -338,8 +310,3 @@ func main() {
 
 </TabItem>
 </Tabs>
-
-
-
-
-We mitigate [risks](/sso/guides/setup-sso/implement-idp-initiated-sso) for the users by performing Service Provider (SP) initiated authorization when users accesses from the IdP instead of your app.

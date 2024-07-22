@@ -52,8 +52,8 @@ This means that you'd always receive the user profile payload in a fixed set of 
 
 ## Full list of User Profile attributes
 
-| Profile Attribute                       | Data Type                                                | Description                                                                                               |
-| --------------------------------------- | -------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| Profile Attribute                                                  | Data Type                                                | Description                                                                                               |
+| ------------------------------------------------------------------ | -------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
 | <SimpleCode className="text--semibold">sub</SimpleCode>            | string                                                   | An identifier for the user, as submitted by the Identity Provider that completed the Single Sign-on.      |
 | <SimpleCode className="text--semibold">email</SimpleCode>          | string                                                   | The user's email address.                                                                                 |
 | <SimpleCode className="text--semibold">email_verified</SimpleCode> | boolean                                                  | True if the user's e-mail address has been verified as claimed by the Identity Provider; otherwise false. |
@@ -66,8 +66,8 @@ This means that you'd always receive the user profile payload in a fixed set of 
 
 ### Identity Object attributes
 
-| Identity Attribute                               | Data Type | Description                                                                                           |
-| ------------------------------------------------ | --------- | ----------------------------------------------------------------------------------------------------- |
+| Identity Attribute                                                          | Data Type | Description                                                                                           |
+| --------------------------------------------------------------------------- | --------- | ----------------------------------------------------------------------------------------------------- |
 | <SimpleCode className="text--semibold">organization_id</SimpleCode>         | string    | Unique ID of the organization to which this user belongs to                                           |
 | <SimpleCode className="text--semibold">connection_id</SimpleCode>           | string    | Unique ID of the connection for which this identity data is fetched from                              |
 | <SimpleCode className="text--semibold">connection_type</SimpleCode>         | string    | type of the connection: SAML or OIDC                                                                  |
@@ -77,6 +77,6 @@ This means that you'd always receive the user profile payload in a fixed set of 
 
 **Notes**
 
-- The <SimpleCode className="text--semibold">sub</SimpleCode> field combines the <SimpleCode className="text--semibold">connection_id</SimpleCode> and the provider's unique identifier.
+- The <SimpleCode className="text--semibold">sub</SimpleCode> field is a concatenation of the <SimpleCode className="text--semibold">connection_id</SimpleCode> and a unique identifier assigned to the user by the identity provider.
 - The identities array may contain multiple objects if the user has authenticated through different methods.
 - The <SimpleCode className="text--semibold">provider_raw_attributes</SimpleCode> object contains all original data from the Identity Provider, which may vary based on the provider and connection type.

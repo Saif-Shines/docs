@@ -36,6 +36,37 @@ const config: Config = {
     ],
   ],
   themeConfig: {
+    // Declare some <meta> tags
+    metadata: [
+      {
+        name: "keywords",
+        content:
+          "documentation, authentication, single sign-on, sso, saml, oidc, oauth2, enterprise",
+      },
+      { property: "twitter:card", content: "summary_large_image" },
+      { property: "twitter:title", content: "Home | Scalekit Docs" },
+      {
+        property: "twitter:desription",
+        content:
+          "Learn how to implement  authentication capabilities through our quick start guides, SDKs and code samples",
+      },
+      {
+        property: "twitter:image",
+        content:
+          "/assets/images/hero_docs-c5ab8170a6af6313594b9db1fdf7f9c0.png",
+      },
+      { property: "og:title", content: "Home | Scalekit Docs" },
+      {
+        property: "og:desription",
+        content:
+          "Learn how to implement  authentication capabilities through our quick start guides, SDKs and code samples",
+      },
+      {
+        property: "og:image",
+        content:
+          "/assets/images/hero_docs-c5ab8170a6af6313594b9db1fdf7f9c0.png",
+      },
+    ],
     docs: {
       sidebar: {
         hideable: false,

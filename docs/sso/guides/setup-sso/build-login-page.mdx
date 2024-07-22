@@ -1,56 +1,45 @@
 
 # Add SSO to your Login Page
-<Subtitle>Login page UX strategies to accommodate Single Sign-on</Subtitle>
+<Subtitle>Login Page UX strategies to implement Single Sign-on</Subtitle>
 
-Using our [quickstart](/sso/quickstart) guide, you may already have implemented Single Sign-on between your application and your customer's Identity Provider. In this article, let's look at different login page UX strategies that you can adopt to implement Single Sign-on in your application's login page.
+Using our [quickstart guide](/sso/quickstart), you may already have implemented Single Sign-on(SSO) between your application and your customer's Identity Provider. In this article, we'll explore different UX strategies to incorporate SSO into your application's login page.
 
-Let's assume that you already let your users log in via email address, password combination or via social providers like Google, GitHub etc.
+Assuming your users can log in via email and password or through social providers like Google and GitHub, you can adopt one of the following three strategies to implement SSO on your login page:
 
-<figure className="width-50">![Simple Login Page](@site/docs/sso/assets/guides/setup-sso/build-login-page/simple_login_page.png)<figcaption>Example of a simple and clean login page</figcaption></figure>
+<figure className="width-50">![Simple Login Page](@site/docs/sso/assets/guides/setup-sso/build-login-page/simple_login_page.png)<figcaption> Example with Password and Social auth methods</figcaption></figure>
 
-Broadly, you can adopt one of the following three different strategies to implement Single Sign-on in your login page
+## Strategy 1: Identifier-driven Single Sign-on
+In this strategy, you first collect the user's identifier - the most popular identifier is the email address. Based on the email address, you determine whether to navigate the user to SSO login experience or password-based authentication. The organization can be discovered using either -
+i) the domain of the user’s email address (or)
+ii) organization identifier shared by the user.
 
-## Strategy 1: Identifier driven Single Sign-on
-In this strategy, you will first collect the email address of the user and depending on the user's email address, you will determine whether to guide the user to Single Sign-on based authentication or password based authentication.
 
-Depending on your implementation, you can decide to authenticate the user via Single Sign-on based on
-1. the domain of the user's email address (or)
-2. authentication settings of the organization to which the user belongs to
+<figure>![Identifier first Login Page](@site/docs/sso/assets/guides/setup-sso/build-login-page/identifier_first_login.png)<figcaption>Identifier-driven login. Example: Sign in to Google account</figcaption></figure>
 
-<figure>![Identifier first Login Page](@site/docs/sso/assets/guides/setup-sso/build-login-page/identifier_first_login.png)<figcaption>Identifier first Login. Example: Google</figcaption></figure>
-
-Biggest advantage in this approach is that users don't have to decide the authentication method and you can do it on their behalf based on the identity(email address) information that they supplied. This improves reduces cognitive load for your users and makes their experience smoother.
-
-Especially in scenarios where users might be logging in using passwords until one day, their admin decides to turn on Single Sign-on option and mandates their users to login only via Single Sign-on and not via password. In this situation, users don't have to change their authentication behaviour but you will do it for them. Popular products like [Google](https://accounts.google.com), [Microsoft](https://login.microsoftonline.com), [AWS](https://console.aws.amazon.com/console/) adopted this strategy in their login page implementation.
+The benefit with this approach is that users don't have to choose the authentication method, thus reducing their cognitive load and making the experience smoother.
+This is especially useful when users initially log in with passwords, and their admin later mandates SSO. Users don't need to change their behavior; your application can handle it. Popular products like [Google](https://accounts.google.com), [Microsoft](https://login.microsoftonline.com), [AWS](https://console.aws.amazon.com/console/) use this strategy in their login pages.
 
 
 ## Strategy 2: Login with Single Sign-on Button
-In this strategy, you will add one more "Login with SSO" button in your login page prompting users to choose this option explicitly. The obvious advantage of this approach is you present all the options available for the user and let the user decide how they want to login to your application.
+In this strategy, you add a "Login with SSO" button on your login page, prompting users to choose this option explicitly. The advantage is that it presents all available authentication options, allowing users to decide how they want to log in.
 
-<figure className="width-50">![Explicit option for Login with SSO](@site/docs/sso/assets/guides/setup-sso/build-login-page/sso_button_login.png)<figcaption>Explicit option for Login with SSO. Example: Cal.com</figcaption></figure>
+<figure className="width-50">![Explicit option for Login with SSO](@site/docs/sso/assets/guides/setup-sso/build-login-page/sso_button_login.png)<figcaption>Display SSO and other authentication options. Example Cal.com</figcaption></figure>
 
-In this approach, if a user tries to login via password even though their admin mandates their employees to login via Single Sign-on, you should force the users to authentication via Single Sign-on instead of showing an error message thus improving the user experience. Popular products like [Cal.com](https://app.cal.com/auth/login), [Notion](https://www.notion.so/login) adopted this strategy in their login page implementation.
+If a user tries to log in with a password, but their admin mandates SSO, you would force SSO-based authentication instead of showing an error message. Popular products like [Cal.com](https://app.cal.com/auth/login), [Notion](https://www.notion.so/login) use this strategy in their login pages.
 
 :::tip
-In either of the above strategies, even if a user chooses an authentication method like Social Login, verify the user's identity and if that user is supposed to authenticate via Single Sign-on based on their admin's configuration in your application, you should prompt the user to re-authenticate via Single Sign-on.
+In either of the above strategies, if a user chooses an authentication method (like Social Login), you need to verify their identity and the apprpriate authentication method. If the user is meant to be authenticated through SSO-based login, make sure your application prompts them to re-authenticate through SSO.
 :::
 
 ## Strategy 3: Tenant specific Login Page
-In this strategy, instead of implementing a single login page served at https:<span></span>//app.yoursaas.com/login, you will instead serve different login pages for each tenant. For example, https://<span></span>tenant1.yoursaas.com/login, https://<span></span>tenant2.yoursaas.com/login.
+In this strategy, instead of a single login page at https:<span></span>//app.yoursaas.com/login, you serve different login pages for each tenant. For example, https://<span></span>tenant1.yoursaas.com/login, https://<span></span>tenant2.yoursaas.com/login. Depending on the tenant URL, you would show only the respective authentication methods applicable to that tenant, thus optimizing the user experience further.
 
-Depending on the login page url that a tenant uses, you can show only those authentication methods that are applicable for that tenant and optimizing the user experience further.
-
-_placeholder image for tenant based login pages>
-
-Popular products like [Zendesk](https://www.zendesk.com/in/login/), [Slack](https://scalekit.slack.com/) adopted this strategy in their login page implementation.
-
-One important thing you need to keep in mind with this strategy is, your users need to remember the tenant URL first before they can access their tenant's login page.
+Popular products like [Zendesk](https://www.zendesk.com/in/login/), [Slack](https://scalekit.slack.com/) use this strategy in their login pages. However, the big drawback with this approach is that users need to remember their tenant URL to access the login page.
 
 ## Initiating Single Sign-on from your login page
-Once you have decided on the strategy to implement in your login page, let's wire your login page to let your users login using SSO via Scalekit.
+Once you've chosen a UX strategy for your application’s login, lets move to the login implementation of SSO through Scalekit. Regardless of the strategy you implemented, you can construct the `authorization_url` using Scalekit SDK and redirect the user to this URL.
 
-Regardless of the strategy you implemented, once you have identified that the user needs to login via Single Sign-on, you can construct the authorization_url via our Scalekit SDK and redirect the user to this url. Refer the code samples below.
-
+Refer to the code samples below:
 
 <Tabs groupId="tech-stack" queryString>
 <TabItem value="nodejs" label="Node.js">

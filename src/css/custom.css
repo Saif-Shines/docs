@@ -357,6 +357,7 @@ figure img {
     border-bottom: 1px solid var(--ifm-toc-border-color);
     padding-bottom: 0.5rem;
     font-size: 1.25rem;
+    color: #727378;
 }
 
 article,

@@ -1,7 +1,9 @@
 # docs
- Scalekit Developer Documentation
+
+Scalekit Developer Documentation
 
 # Running Locally
-1. Clone the Repository
-2. Run the command `npm start` to start docusaurus server
-   If needed, run `npm install` before starting the server
+
+1. Download the project files
+2. Execute the command `yarn start` to initiate the local server
+   If necessary, execute `yarn install` before starting the server

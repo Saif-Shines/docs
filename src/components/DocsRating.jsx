@@ -75,15 +75,18 @@ const TextFeedbackComponent = ({ className, onFeedback }) => {
   );
 };
 
-const DocFeedbackComponent = () => {
+const ScalekitFooterComponent = ({
+  seekFeedback = true,
+  className = "feedbackFooter",
+}) => {
   return (
     <PostHogProvider
       apiKey="phc_85pLP8gwYvRCQdxgLQP24iqXHPRGaLgEw4S4dgZHJZ"
       options={options}
     >
-      <div className="feedbackFooter">
+      <div className={className}>
         <hr />
-        {<DocsRating />}
+        {seekFeedback ? <DocsRating /> : null}
         <div className="footerLink">
           <IoHelpBuoyOutline />
           Need help? <a href="mailto:support@scalekit.com">Contact Support</a>
@@ -97,4 +100,4 @@ const DocFeedbackComponent = () => {
   );
 };
 
-export default DocFeedbackComponent;
+export default ScalekitFooterComponent;

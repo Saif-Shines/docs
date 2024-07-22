@@ -116,7 +116,10 @@ html {
     padding: 0 15%;
     margin-top: -2rem;
 }
-
+.homepage .footerLink {
+    margin-left: -5%;
+    padding: 0 var(--ifm-spacing-horizontal);
+}
 .theme-code-block {
     display: grid;
 }

@@ -16,6 +16,7 @@ import Markdown from "react-markdown";
 import { SimpleCard } from "@site/src/components/ProductList/ProductList";
 import { FancyLink } from "@site/src/components/Card/CardWithArrow";
 import QuickLinkStack from "@site/src/components/QuickLinkStack";
+import ScalekitFooterComponent from "@site/src/components/DocsRating";
 import {
   GlossaryListing,
   TooltippedGlossary,
@@ -46,4 +47,5 @@ export default {
   QuickLinkStack,
   GlossaryListing,
   TooltippedGlossary,
+  ScalekitFooterComponent,
 };

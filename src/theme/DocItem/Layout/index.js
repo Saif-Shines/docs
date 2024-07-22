@@ -10,7 +10,7 @@ import DocItemTOCMobile from "@theme/DocItem/TOC/Mobile";
 import DocItemTOCDesktop from "@theme/DocItem/TOC/Desktop";
 import DocItemContent from "@theme/DocItem/Content";
 import DocBreadcrumbs from "@theme/DocBreadcrumbs";
-import DocFeedbackComponent from "@site/src/components/DocsRating";
+import ScalekitFooterComponent from "@site/src/components/DocsRating";
 import Unlisted from "@theme/Unlisted";
 import styles from "./styles.module.css";
 /**
@@ -51,7 +51,7 @@ export default function DocItemLayout({ children }) {
             <DocItemFooter />
           </article>
           <DocItemPaginator />
-          <DocFeedbackComponent />
+          <ScalekitFooterComponent />
         </div>
       </div>
       {docTOC.desktop && <div className="col col--3">{docTOC.desktop}</div>}

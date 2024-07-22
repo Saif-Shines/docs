@@ -6,7 +6,7 @@ As you get ready to deploy your Single Sign-On (SSO) implementation to productio
 
 <LabeledCheckbox id="1"> **Use appropriate environment variables:** </LabeledCheckbox> Switch from development to production credentials, including the Client ID, Client Secret, and Environment URL.
 
-<LabeledCheckbox id="2"> **Secure the Client Secret:** </LabeledCheckbox> Your client secret is akin to a key to your application. Secure it with the utmost care. To learn industry-standard practices, read Manage Client Secrets guide.
+<LabeledCheckbox id="2"> **Secure the Client Secret:** </LabeledCheckbox> Your client secret is akin to a key to your application. Secure it with the utmost care.
 
 <LabeledCheckbox id="3"> **Verify Redirect URI Configuration:** </LabeledCheckbox> Double-check your Redirect URI settings in the production environment to ensure they point to the correct endpoints. For guidelines on valid configurations, visit our Redirect URI configuration guide.
 
@@ -16,3 +16,15 @@ As you get ready to deploy your Single Sign-On (SSO) implementation to productio
 <LabeledCheckbox id="5"> **Review Admin Portal URL:** </LabeledCheckbox> Customize the admin portal URL to match your domain (for example, <SimpleCode>https:<span></span>//sso.b2b-app.com </SimpleCode>) for a seamless brand experience. Also, Remember to update <SimpleCode>.env</SimpleCode> file post-CNAME configuration.
 
 <LabeledCheckbox id="6"> **Graceful Error Handling:** </LabeledCheckbox> Test your integration thoroughly across all possible edge cases, including incomplete, invalid, or duplicate data submissions.
+
+## Client Secrets Essentials
+
+Client ID and Client Secret are a form of API credentials, like a username and password. You are responsible for keeping Client Secrets safe and secure. Below are some best practices for how you can keep your secrets safe and how you can leverage some of the functionality offered by us to help you do the same.
+
+- Whenever a client secret is generated from the Scalekit Dashboard, it is shown only once and cannot be recovered. Therefore, it should be immediately stored in a secure Key Management System (KMS), which offers encryption and access control features. It is crucial not to leave a duplicate copy of the key in the local file.
+- Sharing of secret keys through insecure channels, such as emails, Slack, or customer support messages, should be strictly avoided.
+- Storing client secrets within source code as hardcoded strings should be avoided. Instead, store them in your properties file or environments file. These files should not be checked into your source code repository.
+- Establishing a Standard Operating Procedure (SOP) for rotating Client Secrets can help in case of accidental secret leakage. Having such procedures in place will ensure a swift and effective response to emergencies, minimizing business impact.
+- Access to create, update, or read keys should be granted only to those individuals who require it for their roles. Regularly auditing access can prevent excess privilege allocation.
+- Regular monitoring of API logs is recommended to identify potential misuse of API keys early. Developers should avoid using live mode keys when a test mode key is suitable.
+- If suspicious activity is detected or a secret leak is suspected, the current secret should be immediately revoked from the Scalekit Dashboard, and a new one should be generated. In case of uncertainty, it is better to generate a new secret and revoke the existing one.
